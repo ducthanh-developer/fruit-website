@@ -39,14 +39,15 @@
 @endpush
 
 @section('page-title')
-    Category Management
+    Quản lý sản phẩm
 @endsection
 
 @section('content')
+    <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <a href="/"  class="btn btn-outline-success m-2">
-                Thêm loại
+            <a href="/admin/product/add" class="btn btn-outline-success m-2">
+                Thêm sản phẩm
             </a>
 
             <div class="card-tools">
@@ -62,19 +63,35 @@
             <table class="table projects">
                 <thead>
                     <tr>
-                        <th style="width: 20%">ID</th>
-                        <th style="width: 40%" class="text-center">
-                            Tên loại sản phẩm
-                        </th>
-                        <th style="width: 20%" class="text-center">Thao tác</th>
+                        <th style="width: 5%">ID</th>
+                        <th style="width: 15%" class="text-center">Tên sản phẩm</th>
+                        <th style="width: 50%" class="text-center">Mô tả</th>
+                        <th style="width: 10%" class="text-center">Giá</th>
+                        <th style="width: 15%" class="text-center">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td class="text-center">Đồng hồ quân đội</td>
+                        <td>
+                            Casio AE-1200WHD-1AVDF – Nam – Kính Nhựa – Quartz (Pin) –
+                            Dây Kim Loại
+                        </td>
+                        <td style="display: flex">
+                            <div>
+                                <img src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/AE-1200WHD-1AVDF-699x699.jpg"
+                                    alt="" width="80px" />
+                            </div>
+                            <div>
+                                Đồng hồ nam Casio AE1200WHD có mặt đồng hồ vuông to với
+                                phong cách thể thao, mặt số điện tử với những tính năng
+                                hiện đại tiện dụng, kết hợp với dây đeo bằng kim loại
+                                đem lại vẻ mạnh mẽ cá tính dành cho phái nam.
+                            </div>
+                        </td>
+                        <td class="text-center">1,308,000</td>
                         <td class="project-actions text-center">
-                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-edit">
+                            <a href="/admin/product/edit" class="btn btn-info btn-sm">
                                 <i class="fas fa-pencil-alt"> </i>
                                 Sửa
                             </a>
@@ -89,5 +106,5 @@
         </div>
         <!-- /.card-body -->
     </div>
+    <!-- /.card -->
 @endsection
-
