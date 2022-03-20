@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('admin/index');
 });
-Route::get('/category', function () {
+
+Route::get('/admin/product', [ProductController::class, 'index']);
+Route::get('/admin/product/add', function () {
+    return view('admin/products/add');
+});
+Route::get('/admin/product/edit', function () {
+    return view('admin/products/edit');
+});
+
+Route::get('/admin/category', function () {
     return view('admin/categories/list');
+});
+
+Route::get('/admin/login', function () {
+    return view('admin/auth/login');
+});
+
+Route::get('/admin/register', function () {
+    return view('admin/auth/register');
 });
