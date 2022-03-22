@@ -18,13 +18,16 @@ Route::get('/admin', function () {
     return view('admin/index');
 });
 
+// product route
 Route::get('/admin/product', [ProductController::class, 'index']);
-Route::get('/admin/product/add', function () {
-    return view('admin/products/add');
-});
-Route::get('/admin/product/edit', function () {
-    return view('admin/products/edit');
-});
+// insert
+Route::get('/admin/product/add', [ProductController::class, 'addView']);
+Route::post('/admin/product/add', [ProductController::class, 'addProduct']);
+// edit
+Route::get('/admin/product/edit/{id}', [ProductController::class, 'editView']);
+Route::put('/admin/product/edit', [ProductController::class, 'editProduct']);
+// delete
+Route::delete('/admin/product/delete/{id}', [ProductController::class, 'deleteProduct']);
 
 Route::get('/admin/category', function () {
     return view('admin/categories/list');
