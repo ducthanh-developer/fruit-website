@@ -81,113 +81,116 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="row">
-                <div class="form-group col-6">
-                    <label for="inputStatus">Loại sản phẩm</label>
-                    <select id="inputStatus" class="form-control custom-select">
-                        <option selected="" disabled="">Select one</option>
-                        <option>On Hold</option>
-                        <option>Canceled</option>
-                        <option>Success</option>
-                    </select>
-                </div>
-                <div class="form-group col-6">
-                    <label for="inputName">Tên sản phẩm</label>
-                    <input type="text" id="inputName" class="form-control">
-                </div>
-                <div class="form-group col-6">
-                    <label for="inputName">Giá sản phẩm</label>
-                    <input type="number" id="inputName" class="form-control">
-                </div>
-                <div class="form-group col-6">
-                    <label for="inputName">Số lượng</label>
-                    <input type="number" id="inputName" class="form-control">
-                </div>
-                <div class="col-6">
-                    <label for="inputName">Hình ảnh</label>
-                    <div class="card card-default">
-                        <div class="card-body">
-                            <div id="actions" class="row">
-                                <div class="col-lg-12">
-                                    <div class="btn-group w-100">
-                                        <span class="btn btn-success col fileinput-button">
-                                            <i class="fas fa-plus"></i>
-                                            <span>Add files</span>
-                                        </span>
-                                        <button type="submit" class="btn btn-primary col start">
-                                            <i class="fas fa-upload"></i>
-                                            <span>Start upload</span>
-                                        </button>
-                                        <button type="reset" class="btn btn-warning col cancel">
-                                            <i class="fas fa-times-circle"></i>
-                                            <span>Cancel upload</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 mt-2 d-flex align-items-center">
-                                    <div class="fileupload-process w-100">
-                                        <div id="total-progress" class="progress progress-striped active" role="progressbar"
-                                            aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                            <div class="progress-bar progress-bar-success" style="width:0%;"
-                                                data-dz-uploadprogress></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="table table-striped files" id="previews">
-                                <div id="template" class="row mt-2">
-                                    <div class="col-auto">
-                                        <span class="preview"><img src="data:," alt="" data-dz-thumbnail /></span>
-                                    </div>
-                                    <div class="col d-flex align-items-center">
-                                        <p class="mb-0">
-                                            <span class="lead" data-dz-name></span>
-                                            (<span data-dz-size></span>)
-                                        </p>
-                                        <strong class="error text-danger" data-dz-errormessage></strong>
-                                    </div>
-                                    <div class="col-4 d-flex align-items-center">
-                                        <div class="progress progress-striped active w-100" role="progressbar"
-                                            aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                            <div class="progress-bar progress-bar-success" style="width:0%;"
-                                                data-dz-uploadprogress></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto mt-2 d-flex align-items-center">
-                                        <div class="btn-group">
-                                            <button class="btn btn-primary start">
-                                                <i class="fas fa-upload"></i>
-                                                <span>Start</span>
-                                            </button>
-                                            <button data-dz-remove class="btn btn-warning cancel">
-                                                <i class="fas fa-times-circle"></i>
-                                                <span>Cancel</span>
-                                            </button>
-                                            <button data-dz-remove class="btn btn-danger delete">
-                                                <i class="fas fa-trash"></i>
-                                                <span>Delete</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
+            <form action="" enctype="multipart/form-data" method="POST">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="category">Loại sản phẩm</label>
+                        <select id="category" class="form-control custom-select" name="category">
+                            <option selected="" disabled="">Chọn loại</option>
+                            @foreach ($categories as $category)
+                                <option value="{{$category->idCategory}}">{{$category->nameCategory}}</option>
+                            @endforeach
+                        </select>
                     </div>
-                    <!-- /.card -->
+                    <div class="form-group col-6">
+                        <label for="product-name">Tên sản phẩm</label>
+                        <input type="text" id="product-name" name="product-name" class="form-control">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="price">Giá sản phẩm</label>
+                        <input type="number" id="price" class="form-control" name="price">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="quantity">Số lượng</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control" >
+                    </div>
+                    <div class="col-6">
+                        <label for="inputName">Hình ảnh</label>
+                        <div class="card card-default">
+                            <div class="card-body">
+                                <div id="actions" class="row">
+                                    <div class="col-lg-12">
+                                        <div class="btn-group w-100">
+                                            <span class="btn btn-success col fileinput-button">
+                                                <i class="fas fa-plus"></i>
+                                                <span>Thêm ảnh</span>
+                                            </span>
+                                            <button type="submit" class="btn btn-primary col start">
+                                                <i class="fas fa-upload"></i>
+                                                <span>Tải lên</span>
+                                            </button>
+                                            <button type="reset" class="btn btn-warning col cancel">
+                                                <i class="fas fa-times-circle"></i>
+                                                <span>Hủy tải lên</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mt-2 d-flex align-items-center">
+                                        <div class="fileupload-process w-100">
+                                            <div id="total-progress" class="progress progress-striped active"
+                                                role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                                <div class="progress-bar progress-bar-success" style="width:0%;"
+                                                    data-dz-uploadprogress></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table table-striped files" id="previews">
+                                    <div id="template" class="row mt-2">
+                                        <div class="col-auto">
+                                            <span class="preview"><img src="data:," alt=""
+                                                    data-dz-thumbnail /></span>
+                                        </div>
+                                        <div class="col d-flex align-items-center">
+                                            <p class="mb-0">
+                                                <span class="lead" data-dz-name></span>
+                                                (<span data-dz-size></span>)
+                                            </p>
+                                            <strong class="error text-danger" data-dz-errormessage></strong>
+                                        </div>
+                                        <div class="col-4 d-flex align-items-center">
+                                            <div class="progress progress-striped active w-100" role="progressbar"
+                                                aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                                <div class="progress-bar progress-bar-success" style="width:0%;"
+                                                    data-dz-uploadprogress></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto mt-2 d-flex align-items-center">
+                                            <div class="btn-group">
+                                                <button class="btn btn-primary start">
+                                                    <i class="fas fa-upload"></i>
+                                                    <span>Bắt đầu</span>
+                                                </button>
+                                                <button data-dz-remove class="btn btn-warning cancel">
+                                                    <i class="fas fa-times-circle"></i>
+                                                    <span>Hủy</span>
+                                                </button>
+                                                <button data-dz-remove class="btn btn-danger delete">
+                                                    <i class="fas fa-trash"></i>
+                                                    <span>Xóa</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="description">Mô tả</label>
+                        <textarea id="description" class="form-control" name="description" rows="10"></textarea>
+                    </div>
                 </div>
-                <div class="form-group col-6">
-                    <label for="inputDescription">Mô tả</label>
-                    <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="reset" class="btn btn-secondary mr-2">Hủy</button>
+                        <input type="submit" value="Thêm" class="btn btn-success">
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12">
-            <a href="#" class="btn btn-secondary mr-2">Hủy</a>
-            <input type="submit" value="Thêm" class="btn btn-success">
+            </form>
         </div>
     </div>
 @endsection
