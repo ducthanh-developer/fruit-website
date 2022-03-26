@@ -87,6 +87,7 @@ class UserController extends Controller
         if ($request->has('password')) {
             $request->merge(['password' => Hash::make($request->password)]);
         }
+
         $user->update([
             'username' => $request->input('username'),
             'fullName' => $request->input('fullName'),
