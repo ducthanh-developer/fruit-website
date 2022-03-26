@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupProductController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\ordersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,3 +98,8 @@ Route::get('/admin/rating', [RatingController::class, 'index']);
 //delete 
 
 Route::get('/deleteRating/{id}',[RatingController::class, 'deleteRating']);
+
+//cmt
+Route::get('/admin/comments', [CommentsController::class, 'index']);
+
+Route::get('/admin/orders', [ordersController::class, 'index']);
