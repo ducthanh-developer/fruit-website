@@ -58,10 +58,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="orders.html" class="nav-link">
+                    <a href="/admin/orders" class="nav-link">
                         <i class="nav-icon fas fa-paste"></i>
                         <p>
                             Đơn hàng
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/comments" class="nav-link">
+                        <i class="nav-icon fas fa-paste"></i>
+                        <p>
+                            Bình luận
                         </p>
                     </a>
                 </li>
