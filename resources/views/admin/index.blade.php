@@ -28,9 +28,9 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+                        <h3>{{$orders}}</h3>
 
-                        <p>Doanh thu</p>
+                        <p>Đơn hàng trong tháng</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
@@ -43,7 +43,7 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>44</h3>
+                        <h3>{{$users}}</h3>
 
                         <p>Người dùng đăng ký</p>
                     </div>
@@ -58,9 +58,9 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>65</h3>
+                        <h3>{{number_format($revenue)}}</h3>
 
-                        <p>Lượt truy cập</p>
+                        <p>Doanh thu</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>

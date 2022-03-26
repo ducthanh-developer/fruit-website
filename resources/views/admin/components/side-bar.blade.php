@@ -36,6 +36,14 @@
 
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/groupproduct" class="nav-link">
+                    <i class="fas fa-object-group"></i>
+                        <p>
+                            Nhóm sản phẩm
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/product" class="nav-link">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
@@ -52,10 +60,26 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/user" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Người dùng
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="orders.html" class="nav-link">
                         <i class="nav-icon fas fa-paste"></i>
                         <p>
                             Đơn hàng
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/rating" class="nav-link">
+                    <i class="fas fa-star"></i>
+                        <p>
+                            Đánh giá sản phẩm
                         </p>
                     </a>
                 </li>

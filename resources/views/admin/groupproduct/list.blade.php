@@ -38,10 +38,9 @@
             cancelButtonText: "Thoát",
             confirmButtonText: "Tiếp tục xóa",
         }).then((result) => {
-            // if (result.isConfirmed) {
-            //     Swal.fire("Đã xóa!", "", "success");
-            // }
-            alert(result);
+            if (result.isConfirmed) {
+                Swal.fire("Đã xóa!", "", "success");
+            }
         });
     };
 
@@ -92,44 +91,18 @@
 @endpush
 
 @section('page-title')
-Quản lý loại sản phẩm
+Quản lý nhóm sản phẩm
 @endsection
 
 @section('content')
 <!-- /.card -->
-@if($errors->any())
-@foreach ($errors->all() as $error)
-<div class="alert alert-danger">
-    {!! $error !!}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endforeach
-@endif
-@if(Session::has('alert_success'))
-<div class="alert alert-success">
-    {!! Session::get('alert_success') !!}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-@if(Session::has('alert_error'))
-<div class="alert alert-danger">
-    {!! Session::get('alert_error') !!}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="/admin/category/add" class="btn btn-outline-success m-2">
-                        Thêm loại sản phẩm
+                    <a href="/admin/groupproduct/add" class="btn btn-outline-success m-2">
+                        Thêm nhóm sản phẩm
                     </a>
                 </div>
                 <!-- /.card-header -->
@@ -138,27 +111,24 @@ Quản lý loại sản phẩm
                         <thead>
                             <tr>
                                 <th style="width: 5%">ID</th>
-                                <th style="width: 15%" class="text-center">Tên loại sản phẩm</th>
-                                <th style="width: 15%" class="text-center">Tên nhóm sản phẩm</th>
-                                <th style="width: 15%" class="text-center">Thao tác</th>
+                                <th style="width: 45%" class="text-center">Tên nhóm sản phẩm</th>
+                                <th style="width: 50%" class="text-center">Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categoryList as $category)
+                            @foreach ($groupproductList as $groupproduct)
                             <tr>
-                                <td>{{ $category->idCategory }}</td>
-                                <td>{{ $category->nameCategory }}</td>
-                                <td>{{ $category->nameGroupProduct }}</td>
-                                <td class="project-actions text-center">
-                                    <a href="/admin/category/edit/{{$category->idCategory}}" class="btn btn-info btn-sm">
+                                <td>{{ $groupproduct->idGroupProduct }}</td>
+                                <td>{{ $groupproduct->nameGroupProduct }}</td>
+                                <td>
+                                    <a href="{{URL::to('/updateGroupProduct/'.$groupproduct->idGroupProduct)}}" class="btn btn-info btn-sm">
                                         <i class="fas fa-pencil-alt"> </i>
                                         Sửa
                                     </a>
-                                    <a href="{{ route('category.delete', ['id' => $category->idCategory]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn xóa loại sản phẩm này')">
+                                    <a class="btn btn-danger btn-sm" href="{{URL::to('/deleteGroupProduct/'.$groupproduct->idGroupProduct)}}">
                                         <i class="fas fa-trash"> </i>
                                         Xóa
                                     </a>
-
                                 </td>
                             </tr>
                             @endforeach
@@ -166,9 +136,8 @@ Quản lý loại sản phẩm
                         <tfoot>
                             <tr>
                                 <th style="width: 5%">ID</th>
-                                <th style="width: 15%" class="text-center">Tên loại sản phẩm</th>
-                                <th style="width: 15%" class="text-center">Tên nhóm sản phẩm</th>
-                                <th style="width: 15%" class="text-center">Thao tác</th>
+                                <th style="width: 45%" class="text-center">Tên nhóm sản phẩm</th>
+                                <th style="width: 50%" class="text-center">Thao tác</th>
                             </tr>
                         </tfoot>
                     </table>

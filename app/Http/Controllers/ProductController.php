@@ -15,7 +15,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        // render list 
+        // render list
         $productList = DB::table('products')
             ->select('*')
             ->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')
