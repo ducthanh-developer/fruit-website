@@ -27,7 +27,7 @@
     <script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <script>
         // SweetAlert2
-        const deleteAlert = () => {
+        const deleteAlert = (idPro) => {
             Swal.fire({
                 title: "Bạn chắc chắn muốn xóa?",
                 text: "Dữ liệu sẽ bị xóa sẽ không thể hoàn tác",
@@ -36,9 +36,10 @@
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
                 cancelButtonText: "Thoát",
-                confirmButtonText: "Tiếp tục xóa",
+                confirmButtonText: `<a href='/admin/product/delete/${idPro}' style='color:#fff'>Tiếp tục xóa</a>`,
             }).then((result) => {
                 if (result.isConfirmed) {
+                    window.location.href = ""
                     Swal.fire("Đã xóa!", "", "success");
                 }
             });
@@ -112,32 +113,37 @@
                                 <tr>
                                     <th style="width: 5%">ID</th>
                                     <th style="width: 15%" class="text-center">Tên sản phẩm</th>
-                                    <th style="width: 50%" class="text-center">Mô tả</th>
+                                    <th style="width: 10%" class="text-center">Hình ảnh</th>
+                                    <th style="width: 40%" class="text-center">Mô tả</th>
                                     <th style="width: 10%" class="text-center">Giá</th>
                                     <th style="width: 15%" class="text-center">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($productList as $product)
+                                @php
+                                     $url = 'images/' . $product->imgUrl;
+                                @endphp
                                     <tr>
                                         <td>{{ $product->idProduct }}</td>
                                         <td>{{ $product->nameProduct }}</td>
-                                        <td class="d-flex">
-                                            <div>
-                                                <img src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/AE-1200WHD-1AVDF-699x699.jpg"
-                                                    alt="" width="80px" />
-                                            </div>
-                                            <div>
-                                                {{$product->description}}
-                                            </div>
+                                        <td>
+                                            <img src="{{ asset($url) }}"
+                                                class="img-thumbnail rounded" alt="Ảnh sản phẩm" width="100" />
                                         </td>
-                                        <td class="text-center">{{number_format($product->price)}}</td>
+                                        <td>
+                                            {{ $product->description }}
+
+                                        </td>
+                                        <td class="text-center">{{ number_format($product->price) }}</td>
                                         <td class="project-actions text-center">
-                                            <a href="/admin/product/edit/{{$product->idProduct}}" class="btn btn-info btn-sm">
+                                            <a href="/admin/product/edit/{{ $product->idProduct }}"
+                                                class="btn btn-info btn-sm">
                                                 <i class="fas fa-pencil-alt"> </i>
                                                 Sửa
                                             </a>
-                                            <a class="btn btn-danger btn-sm" onclick="deleteAlert()">
+                                            <a class="btn btn-danger btn-sm"
+                                                onclick="deleteAlert({{ $product->idProduct }})">
                                                 <i class="fas fa-trash"> </i>
                                                 Xóa
                                             </a>
@@ -149,7 +155,8 @@
                                 <tr>
                                     <th style="width: 5%">ID</th>
                                     <th style="width: 15%" class="text-center">Tên sản phẩm</th>
-                                    <th style="width: 50%" class="text-center">Mô tả</th>
+                                    <th style="width: 10%" class="text-center">Hình ảnh</th>
+                                    <th style="width: 40%" class="text-center">Mô tả</th>
                                     <th style="width: 10%" class="text-center">Giá</th>
                                     <th style="width: 15%" class="text-center">Thao tác</th>
                                 </tr>
