@@ -92,7 +92,7 @@
 @endpush
 
 @section('page-title')
-Quản lý loại sản phẩm
+Quản lý người dùng
 @endsection
 
 @section('content')
@@ -128,8 +128,8 @@ Quản lý loại sản phẩm
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="/admin/category/add" class="btn btn-outline-success m-2">
-                        Thêm loại sản phẩm
+                    <a href="/admin/user/add" class="btn btn-outline-success m-2">
+                        Thêm người dùng
                     </a>
                 </div>
                 <!-- /.card-header -->
@@ -137,24 +137,30 @@ Quản lý loại sản phẩm
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th style="width: 5%">ID</th>
-                                <th style="width: 15%" class="text-center">Tên loại sản phẩm</th>
-                                <th style="width: 15%" class="text-center">Tên nhóm sản phẩm</th>
+                                <th style="width: 5%">Mã khách hàng</th>
+                                <th style="width: 15%" class="text-center">Username</th>
+                                <th style="width: 15%" class="text-center">Tên khách hàng</th>
+                                <th style="width: 15%" class="text-center">Email</th>
+                                <th style="width: 15%" class="text-center">Địa chỉ</th>
+                                <th style="width: 15%" class="text-center">SĐT</th>
                                 <th style="width: 15%" class="text-center">Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categoryList as $category)
+                            @foreach ($userList as $user)
                             <tr>
-                                <td>{{ $category->idCategory }}</td>
-                                <td>{{ $category->nameCategory }}</td>
-                                <td>{{ $category->nameGroupProduct }}</td>
+                                <td>{{$user->idUser}}</td>
+                                <td>{{$user->username}}</td>
+                                <td>{{$user->fullName}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->address}}</td>
+                                <td>{{$user->phoneNumber}}</td>
                                 <td class="project-actions text-center">
-                                    <a href="/admin/category/edit/{{$category->idCategory}}" class="btn btn-info btn-sm">
+                                    <a href="/admin/user/edit/{{$user->idUser}}" class="btn btn-info btn-sm">
                                         <i class="fas fa-pencil-alt"> </i>
                                         Sửa
                                     </a>
-                                    <a href="{{ route('category.delete', ['id' => $category->idCategory]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn xóa loại sản phẩm này')">
+                                    <a href="{{ route('user.delete', ['id' => $user->idUser]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn xóa loại sản phẩm này')">
                                         <i class="fas fa-trash"> </i>
                                         Xóa
                                     </a>
@@ -165,9 +171,12 @@ Quản lý loại sản phẩm
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th style="width: 5%">ID</th>
-                                <th style="width: 15%" class="text-center">Tên loại sản phẩm</th>
-                                <th style="width: 15%" class="text-center">Tên nhóm sản phẩm</th>
+                            <th style="width: 5%">Mã khách hàng</th>
+                                <th style="width: 15%" class="text-center">Username</th>
+                                <th style="width: 15%" class="text-center">Tên khách hàng</th>
+                                <th style="width: 15%" class="text-center">Email</th>
+                                <th style="width: 15%" class="text-center">Địa chỉ</th>
+                                <th style="width: 15%" class="text-center">SĐT</th>
                                 <th style="width: 15%" class="text-center">Thao tác</th>
                             </tr>
                         </tfoot>

@@ -58,6 +58,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/user" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Người dùng
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="orders.html" class="nav-link">
                         <i class="nav-icon fas fa-paste"></i>
                         <p>
