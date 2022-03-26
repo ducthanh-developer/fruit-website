@@ -4,6 +4,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GroupProductController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,3 +71,25 @@ Route::get('/admin/login', function () {
 Route::get('/admin/register', function () {
     return view('admin/auth/register');
 });
+
+//groupproduct route
+
+//index groupproduct
+Route::get('/admin/groupproduct', [GroupProductController::class, 'index']);
+//insert
+Route::get('/admin/groupproduct/add', [GroupProductController::class, 'addView']);
+Route::post('/admin/groupproduct/add', [GroupProductController::class, 'addGroupProduct']);
+//delete
+Route::get('/deleteGroupProduct/{id}',[GroupProductController::class, 'deleteGroupProduct']);
+//edit
+Route::get('/updateGroupProduct/{id}', [GroupProductController::class, 'updateView']);
+Route::put('/admin/groupproduct/updateGroupProduct', [GroupProductController::class, 'updateGroupProduct']);
+
+//rating route
+
+//index
+Route::get('/admin/rating', [RatingController::class, 'index']);
+
+//delete 
+
+Route::get('/deleteRating/{id}',[RatingController::class, 'deleteRating']);
