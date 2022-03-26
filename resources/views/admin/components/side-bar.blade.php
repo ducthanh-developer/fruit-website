@@ -14,7 +14,9 @@
                 <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image" />
             </div>
             <div class="info">
-                <a href="#" class="d-block">Charlie</a>
+                <a href="#">
+                    {{ Auth::user()->name }}
+                </a>
             </div>
         </div>
 
@@ -58,7 +60,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/orders" class="nav-link">
+                    <a href="/admin/user" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Người dùng
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="orders.html" class="nav-link">
                         <i class="nav-icon fas fa-paste"></i>
                         <p>
                             Đơn hàng

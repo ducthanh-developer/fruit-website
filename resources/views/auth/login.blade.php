@@ -1,7 +1,7 @@
-@extends('admin.layouts.auth-layout')
+@extends('layouts.auth-layout')
 
 @section('page-title')
-    Login
+    Đăng nhập
 @endsection
 
 @section('content')
@@ -86,7 +86,7 @@
                     @endif
 
                     <p class="mb-0">
-                        <a href="/admin/register" class="text-center">Đăng ký tài khoản mới</a>
+                        <a href="{{ route('register') }}" class="text-center">Đăng ký tài khoản mới</a>
                     </p>
                 </div>
                 <!-- /.login-card-body -->
