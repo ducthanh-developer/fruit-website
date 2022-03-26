@@ -60,7 +60,7 @@
                     <div class="inner">
                         <h3>{{number_format($revenue)}}</h3>
 
-                        <p>Doanh thu</p>
+                        <p>Doanh thu trong tháng</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
