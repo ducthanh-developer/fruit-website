@@ -50,4 +50,9 @@ class LoginController extends Controller
 
         return redirect('/login');
     }
+
+    // public function redirectToProvider($driver)
+    // {
+    //     return Socialite::driver($driver)->redirect();
+    // }
 }

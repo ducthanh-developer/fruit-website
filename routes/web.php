@@ -33,7 +33,7 @@ Route::get('/admin/product/add', [ProductController::class, 'addView']);
 Route::post('/admin/product/add', [ProductController::class, 'addProduct'])->name('add-product');
 // edit
 Route::get('/admin/product/edit/{id}', [ProductController::class, 'editView']);
-Route::put('/admin/product/edit/{id}', [ProductController::class, 'editProduct']);
+Route::put('/admin/product/edit', [ProductController::class, 'editProduct']);
 // delete
 Route::get('/admin/product/delete/{id}', [ProductController::class, 'deleteProduct']);
 
