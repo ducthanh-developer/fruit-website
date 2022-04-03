@@ -10,6 +10,7 @@ use App\Http\Controllers\GroupProductController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ordersController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,7 +96,7 @@ Route::put('/admin/groupproduct/updateGroupProduct', [GroupProductController::cl
 //index
 Route::get('/admin/rating', [RatingController::class, 'index']);
 
-//delete 
+//delete
 
 Route::get('/deleteRating/{id}',[RatingController::class, 'deleteRating']);
 
@@ -103,3 +104,6 @@ Route::get('/deleteRating/{id}',[RatingController::class, 'deleteRating']);
 Route::get('/admin/comments', [CommentsController::class, 'index']);
 
 Route::get('/admin/orders', [ordersController::class, 'index']);
+
+// Trang chủ
+Route::get('/', [HomeController::class, 'index']);

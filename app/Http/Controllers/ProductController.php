@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function index()
     {
@@ -27,7 +27,11 @@ class ProductController extends Controller
     public function addView()
     {
         $listCate = DB::table('category')->get();
-        $data = ['categories' => $listCate];
+        $typeProduct = DB::table('typeproduct')->get();
+        $data = [
+            'categories' => $listCate,
+            'typeProduct' => $typeProduct
+        ];
         return view('admin/products/add', $data);
     }
 
@@ -50,11 +54,12 @@ class ProductController extends Controller
         $price = $request->input('price');
         $quantity = $request->input('quantity');
         $imgUrl = $this->uploadImage($request);
+        $idTypeProduct = $request->idTypeProduct;
         $idProduct = DB::table('products')->insertGetId(
             ['nameProduct' => $nameProduct, 'idCategory' => $idCategory, 'description' => $description]
         );
         DB::table('productdetail')->insert(
-            ['idProduct' => $idProduct, 'price' => $price, 'quantity' => $quantity, 'imgUrl' => $imgUrl]
+            ['idProduct' => $idProduct, 'price' => $price, 'quantity' => $quantity, 'imgUrl' => $imgUrl, 'idTypeProduct' => $idTypeProduct]
         );
 
         return $this->addView();
@@ -63,11 +68,12 @@ class ProductController extends Controller
     public function editView($id)
     {
         $listCate = DB::table('category')->get();
+        $typeProduct = DB::table('typeproduct')->get();
         $product = DB::table('products')
             ->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')
             ->where('products.idProduct', '=', $id)
             ->first();
-        $data = ['categories' => $listCate, 'product' => $product];
+        $data = ['categories' => $listCate, 'product' => $product, 'typeProduct' => $typeProduct];
         return view('admin/products/edit', $data);
     }
 
@@ -81,10 +87,11 @@ class ProductController extends Controller
         $price = $request->input('price');
         $quantity = $request->input('quantity');
         $imgUrl = $this->uploadImage($request);
+        $idTypeProduct = $request->idTypeProduct;
         DB::table('products')
             ->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')
             ->where('products.idProduct', '=', $id)
-            ->update(['nameProduct' => $nameProduct, 'idCategory' => $idCategory, 'description' => $description, 'price' => $price, 'quantity' => $quantity, 'imgUrl' => $imgUrl]);
+            ->update(['nameProduct' => $nameProduct, 'idCategory' => $idCategory, 'description' => $description, 'price' => $price, 'quantity' => $quantity, 'imgUrl' => $imgUrl, 'idTypeProduct' => $idTypeProduct]);
 
         return $this->editView($id);
     }
