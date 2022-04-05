@@ -16,12 +16,12 @@ return new class extends Migration
     {
         Schema::create('bill', function (Blueprint $table) {
             $table->increments('idBill');
-            $table->unsignedInteger('idUser');
+            $table->unsignedBigInteger('idUser');
             $table->float('total');
             $table->dateTime('date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
-            $table->foreign('idUser')->references('idUser')->on('user')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('idUser')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
