@@ -32,6 +32,13 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/revolution/css/layers.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/revolution/css/navigation.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/revolution/css/settings.css') }}">
+
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/slide100/slide100.css">
+	<!--==============================================================================
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
@@ -50,68 +57,27 @@
 						<div class="menu-desktop">
 							<ul class="main-menu">
 								<li class="active-menu">
-									<a href="index.html">Home</a>
-									<ul class="sub-menu">
-										<li><a href="index.html">Homepage 1</a></li>
-										<li><a href="home-02.html">Homepage 2</a></li>
-										<li><a href="home-03.html">Homepage 3</a></li>
-										<li><a href="home-04.html">Homepage 4</a></li>
-										<li><a href="home-05.html">Homepage 5</a></li>
-										<li><a href="home-06.html">Homepage 6</a></li>
-									</ul>
+									<a href="/">Home</a>
 								</li>
 
 								<li>
 									<a href="#">Page</a>
-									<ul class="sub-menu">
-										<li><a href="about-01.html">About 1</a></li>
-										<li><a href="about-02.html">About 2</a></li>
-										<li><a href="coming-soon.html">Coming Soon</a></li>
-										<li><a href="error.html">404 Error</a></li>
-										<li><a href="checkout.html">CheckOut</a></li>
-										<li><a href="account.html">My Account</a></li>
-										<li><a href="account-lost-pass.html">My Account Lost Pass</a></li>
-										<li><a href="account-register.html">My Account Register</a></li>
-										<li><a href="wishlist.html">Wishlist</a></li>
-									</ul>
 								</li>
 
 								<li>
 									<a href="shop-sidebar-grid.html">Shop</a>
-									<ul class="sub-menu">
-										<li><a href="shop-sidebar-grid.html">Shop Sidebar Grid</a></li>
-										<li><a href="shop-sidebar-list.html">Shop Sidebar List</a></li>
-										<li><a href="shop-product-grid.html">Shop Product Grid</a></li>
-										<li><a href="shop-product-list.html">Shop Product List</a></li>
-										<li><a href="product-single.html">Product Single</a></li>
-										<li><a href="shop-cart.html">Shop Cart</a></li>
-									</ul>
 								</li>
 
 								<li>
 									<a href="blog-list.html">Blog</a>
-									<ul class="sub-menu">
-										<li><a href="blog-list.html">Blog List</a></li>
-										<li><a href="blog-grid-01.html">Blog Grid 1</a></li>
-										<li><a href="blog-grid-02.html">Blog Grid 2</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-									</ul>
 								</li>
 
 								<li>
 									<a href="gallery-01.html">Gallery</a>
-									<ul class="sub-menu">
-										<li><a href="gallery-01.html">Gallery 1</a></li>
-										<li><a href="gallery-02.html">Gallery 2</a></li>
-									</ul>
 								</li>
 
 								<li>
 									<a href="contact-01.html">Contact</a>
-									<ul class="sub-menu">
-										<li><a href="contact-01.html">Contact 1</a></li>
-										<li><a href="contact-02.html">Contact 2</a></li>
-									</ul>
 								</li>
 							</ul>
 						</div>	
@@ -222,7 +188,7 @@
 										</span>
 									</div>
 									
-									<a href="checkout.html" class="flex-c-m size-a-8 bg10 txt-s-105 cl13 hov-btn2 trans-04">
+									<a href="/checkout" class="flex-c-m size-a-8 bg10 txt-s-105 cl13 hov-btn2 trans-04">
 										check out
 									</a>	
 								</div>
@@ -769,10 +735,16 @@
 	<script src="{{ asset('vendor/countdowntime/moment-timezone-with-data.min.js') }}"></script>
 	<script src="{{ asset('vendor/countdowntime/jquery.countdown.min.js') }}"></script>
 	<script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
+
+	<script src="{{ asset('vendor/slide100/slide100.js')}}"></script>
+	<script src="{{ asset('js/slide100-custom.js') }}"></script>
+
+	<script src="{{'vendor/noui/nouislider.min.js'}}"></script>
 <!--===============================================================================================-->
 	<script src="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 <!--===============================================================================================-->
 	<script src="{{ asset('js/main.js') }}"></script>
+	
 
 </body>
 </html>

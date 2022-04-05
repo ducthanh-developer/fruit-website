@@ -47,6 +47,23 @@ class HomeController extends Controller
             'short' => $short,
             'backpack' => $backpack,
         ];
-        return view('client.index', $data);
+        return view('client.home', $data);
     }
+    //Checkout
+    function checkout(){
+        return view('client.checkout');
+    }
+    //Shop-cart
+    function shopCart(){
+        return view('client.shop-cart');
+    }
+    //Chi tiet san pham
+    function productDetails(){
+        return view('client.product_details');
+    }
+    //Tài khoản
+    function account(){
+        return view('client.account');
+    }
+
 }
