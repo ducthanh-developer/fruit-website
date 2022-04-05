@@ -20,8 +20,8 @@ return new class extends Migration
             $table->tinyInteger('status');
             $table->unsignedInteger('idProduct');
             $table->timestamps();
-            $table->foreign('idUser')->references('idUser')->on('user');
-            $table->foreign('idProduct')->references('idProduct')->on('products');
+            $table->foreign('idUser')->references('idUser')->on('user')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('idProduct')->references('idProduct')->on('products')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

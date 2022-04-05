@@ -24,6 +24,8 @@ use App\Http\Controllers\ordersController;
 
 Auth::routes();
 
+// Admin route
+
 Route::get('/admin', [Dashboard::class, 'index']);
 
 // product route
@@ -103,3 +105,11 @@ Route::get('/deleteRating/{id}',[RatingController::class, 'deleteRating']);
 Route::get('/admin/comments', [CommentsController::class, 'index']);
 
 Route::get('/admin/orders', [ordersController::class, 'index']);
+
+
+
+// Client Route
+
+Route::get('/product-list/{idCate}', [ProductController::class, 'productListView'])->name('product-list');
+Route::get('/product-search', [ProductController::class, 'productSearch']);
+Route::get('/product-search-price/{low}/{high}', [ProductController::class, 'productSearchPrice']);

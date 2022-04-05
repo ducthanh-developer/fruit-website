@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class ProductController extends Controller
 {
 
@@ -16,13 +16,46 @@ class ProductController extends Controller
     public function index()
     {
         // render list
-        $productList = DB::table('products')
+        $data = ['productList' => $this->getProducts()];
+        return view('admin/products/list', $data);
+    }
+
+    // client
+
+    public function getProducts()
+    {
+        return DB::table('products')
             ->select('*')
             ->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')
             ->get();
-        $data = ['productList' => $productList];
-        return view('admin/products/list', $data);
     }
+    public function getProductsByCategory($idCate)
+    {
+        return Product::where('idCategory', '=', $idCate)->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->paginate(5);
+    }
+
+    public function productListView($idCate, Request $request)
+    {
+
+        $data = ['productList' => $this->getProductsByCategory($idCate)];
+        return view('/client/products-list', $data);
+    }
+
+    public function productSearch(Request $request)
+    {
+        $name = $request->input('search');
+        $productList =  Product::where('nameProduct', 'like', '%'.$name.'%')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->paginate(5);
+        $data = ['productList' => $productList];
+        return view('/client/products-list', $data);
+    }
+
+    public function productSearchPrice($low, $high){
+        $productList =  Product::join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->where('price', '<', $high, 'and', 'price', '>', $low)->paginate(5);
+        $data = ['productList' => $productList];
+        return view('/client/products-list', $data);
+    }
+
+    // admin
 
     public function addView()
     {

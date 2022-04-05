@@ -465,7 +465,8 @@
             range: {
                 'min': fromValue,
                 'max': toValue
-            }
+            },
+            step: 50000
         });
 
         var skipValues = [
@@ -475,7 +476,12 @@
 
         filterBar.noUiSlider.on('update', function( values, handle ) {
             skipValues[handle].innerHTML = Math.round(values[handle]) ;
+            let search = document.getElementById('search-price');
+            let range = filterBar.noUiSlider.get();
+            search.href = `/product-search-price/${range[0]}/${range[1]}`
+            
         });
+        
     } catch(er) {console.log(er);}
 
 
