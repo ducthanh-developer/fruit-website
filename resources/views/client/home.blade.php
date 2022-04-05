@@ -1,4 +1,4 @@
-@extends('layouts.main-layout')
+@extends('client.layouts.main-layout')
 @section('title')
     Home
 @endsection

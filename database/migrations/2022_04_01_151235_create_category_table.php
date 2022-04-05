@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedInteger('idGroupProduct');
             $table->string('nameCategory', 50);
             $table->timestamps();
-            $table->foreign('idGroupProduct')->references('idGroupProduct')->on('groupproduct');
+            $table->foreign('idGroupProduct')->references('idGroupProduct')->on('groupproduct')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

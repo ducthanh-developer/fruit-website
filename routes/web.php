@@ -25,6 +25,8 @@ use App\Http\Controllers\HomeController;
 
 Auth::routes();
 
+// Admin route
+
 Route::get('/admin', [Dashboard::class, 'index']);
 
 // product route
@@ -105,5 +107,12 @@ Route::get('/admin/comments', [CommentsController::class, 'index']);
 
 Route::get('/admin/orders', [ordersController::class, 'index']);
 
+
+
+// Client Route
+
+Route::get('/product-list/{idCate}', [ProductController::class, 'productListView'])->name('product-list');
+Route::get('/product-search', [ProductController::class, 'productSearch']);
+Route::get('/product-search-price/{low}/{high}', [ProductController::class, 'productSearchPrice']);
 // Trang chủ
 Route::get('/', [HomeController::class, 'index']);

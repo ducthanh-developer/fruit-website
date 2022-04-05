@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('imgUrl');
             $table->integer('quantity')->nullable();
             $table->timestamps();
-            $table->foreign('idProduct')->references('idProduct')->on('products');
+            $table->foreign('idProduct')->references('idProduct')->on('products')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
