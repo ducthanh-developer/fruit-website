@@ -116,3 +116,11 @@ Route::get('/product-search', [ProductController::class, 'productSearch']);
 Route::get('/product-search-price/{low}/{high}', [ProductController::class, 'productSearchPrice']);
 // Trang chủ
 Route::get('/', [HomeController::class, 'index']);
+//Check out
+Route::get('/checkout', [HomeController::class, 'checkout']);
+//shop-cart
+Route::get('/shop-cart', [HomeController::class, 'shopCart']);
+//product details
+Route::get('/chi-tiet-san-pham', [HomeController::class, 'productDetails']);
+//Account
+Route::get('/tai-khoan', [HomeController::class, 'account']);
