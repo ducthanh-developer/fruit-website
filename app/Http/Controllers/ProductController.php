@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -28,31 +28,6 @@ class ProductController extends Controller
             ->select('*')
             ->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')
             ->get();
-    }
-    public function getProductsByCategory($idCate)
-    {
-        return Product::where('idCategory', '=', $idCate)->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->paginate(5);
-    }
-
-    public function productListView($idCate, Request $request)
-    {
-
-        $data = ['productList' => $this->getProductsByCategory($idCate)];
-        return view('/client/products-list', $data);
-    }
-
-    public function productSearch(Request $request)
-    {
-        $name = $request->input('search');
-        $productList =  Product::where('nameProduct', 'like', '%'.$name.'%')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->paginate(5);
-        $data = ['productList' => $productList];
-        return view('/client/products-list', $data);
-    }
-
-    public function productSearchPrice($low, $high){
-        $productList =  Product::join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->where('price', '<', $high, 'and', 'price', '>', $low)->paginate(5);
-        $data = ['productList' => $productList];
-        return view('/client/products-list', $data);
     }
 
     // admin
