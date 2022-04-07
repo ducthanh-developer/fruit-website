@@ -24,14 +24,46 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $featured_products = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->where('idTypeProduct', 1)->orderBy('idProductDetail', 'desc')->get();
-        $fruit = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->where('productdetail.idTypeProduct', 2)->where('category.idGroupProduct', 1)->orderBy('productdetail.idProductDetail', 'desc')->take(8)->get();
-        $vegetable = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->where('productdetail.idTypeProduct', 2)->where('category.idGroupProduct', 2)->orderBy('productdetail.idProductDetail', 'desc')->take(8)->get();
-        $meat = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->where('productdetail.idTypeProduct', 2)->where('category.idGroupProduct', 3)->orderBy('productdetail.idProductDetail', 'desc')->take(8)->get();
-        $rice = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->where('productdetail.idTypeProduct', 2)->where('category.idGroupProduct', 4)->orderBy('productdetail.idProductDetail', 'desc')->take(8)->get();
-        $butter = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->where('productdetail.idTypeProduct', 2)->where('category.idGroupProduct', 5)->orderBy('productdetail.idProductDetail', 'desc')->take(8)->get();
-        $product1 = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->orderBy('idProductDetail', 'desc')->get()->random(6);
-        $product2 = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->orderBy('idProductDetail', 'desc')->get()->random(6);
-        return view('client.index', ['featured_products' => $featured_products, 'fruit' => $fruit, 'vegetable' => $vegetable, 'meat' => $meat, 'rice' => $rice, 'butter' => $butter, 'product1' => $product1, 'product2' => $product2]);
+        $featured_products = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('typeproduct', 'productdetail.idTypeProduct', '=', 'typeproduct.idTypeProduct')->where('productdetail.idTypeProduct', 1)->get();
+        $all_product = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->orderBy('productdetail.idProduct', 'desc')->take(12)->get();
+        $shirt = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->join('groupproduct', 'category.idGroupProduct', '=', 'groupproduct.idGroupProduct')->where('groupproduct.idGroupProduct', 1)->orderBy('productdetail.idProduct', 'desc')->take(12)->get();
+        $trousers = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->join('groupproduct', 'category.idGroupProduct', '=', 'groupproduct.idGroupProduct')->where('groupproduct.idGroupProduct', 2)->orderBy('productdetail.idProduct', 'desc')->take(12)->get();
+        $shoes = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->join('groupproduct', 'category.idGroupProduct', '=', 'groupproduct.idGroupProduct')->where('groupproduct.idGroupProduct', 3)->orderBy('productdetail.idProduct', 'desc')->take(12)->get();
+        $accessory = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->join('groupproduct', 'category.idGroupProduct', '=', 'groupproduct.idGroupProduct')->where('groupproduct.idGroupProduct', 4)->orderBy('productdetail.idProduct', 'desc')->take(12)->get();
+        $clock = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->join('groupproduct', 'category.idGroupProduct', '=', 'groupproduct.idGroupProduct')->where('groupproduct.idGroupProduct', 5)->orderBy('productdetail.idProduct', 'desc')->take(12)->get();
+        $short = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->join('groupproduct', 'category.idGroupProduct', '=', 'groupproduct.idGroupProduct')->where('groupproduct.idGroupProduct', 6)->orderBy('productdetail.idProduct', 'desc')->take(12)->get();
+        $backpack = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->join('groupproduct', 'category.idGroupProduct', '=', 'groupproduct.idGroupProduct')->where('groupproduct.idGroupProduct', 7)->orderBy('productdetail.idProduct', 'desc')->take(12)->get();
+        $product_one = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('typeproduct', 'productdetail.idTypeProduct', '=', 'typeproduct.idTypeProduct')->get()->random(6);
+        $product_two = DB::table('products')->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->join('typeproduct', 'productdetail.idTypeProduct', '=', 'typeproduct.idTypeProduct')->get()->random(6);
+        $data = [
+            'featured_products' => $featured_products,
+            'product_one' => $product_one,
+            'product_two' => $product_two,
+            'shirt' => $shirt,
+            'trousers' => $trousers,
+            'shoes' => $shoes,
+            'accessory' => $accessory,
+            'clock' => $clock,
+            'short' => $short,
+            'backpack' => $backpack,
+        ];
+        return view('client.home', $data);
     }
+    //Checkout
+    function checkout(){
+        return view('client.checkout');
+    }
+    //Shop-cart
+    function shopCart(){
+        return view('client.shop-cart');
+    }
+    //Chi tiet san pham
+    function productDetails(){
+        return view('client.product_details');
+    }
+    //Tài khoản
+    function account(){
+        return view('client.account');
+    }
+
 }

@@ -17,10 +17,10 @@ return new class extends Migration
             $table->increments('idRating');
             $table->tinyInteger('points');
             $table->unsignedInteger('idProduct');
-            $table->unsignedInteger('idUser');
+            $table->unsignedBigInteger('idUser');
             $table->timestamps();
-            $table->foreign('idUser')->references('idUser')->on('user')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('idProduct')->references('idProduct')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('idProduct')->references('idProduct')->on('products')->onDelete('cascade');
         });
     }
 

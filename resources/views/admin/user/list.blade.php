@@ -149,18 +149,18 @@ Quản lý người dùng
                         <tbody>
                             @foreach ($userList as $user)
                             <tr>
-                                <td>{{$user->idUser}}</td>
+                                <td>{{$user->id}}</td>
                                 <td>{{$user->username}}</td>
-                                <td>{{$user->fullName}}</td>
+                                <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->address}}</td>
                                 <td>{{$user->phoneNumber}}</td>
                                 <td class="project-actions text-center">
-                                    <a href="/admin/user/edit/{{$user->idUser}}" class="btn btn-info btn-sm">
+                                    <a href="/admin/user/edit/{{$user->id}}" class="btn btn-info btn-sm">
                                         <i class="fas fa-pencil-alt"> </i>
                                         Sửa
                                     </a>
-                                    <a href="{{ route('user.delete', ['id' => $user->idUser]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn xóa loại sản phẩm này')">
+                                    <a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn xóa loại sản phẩm này')">
                                         <i class="fas fa-trash"> </i>
                                         Xóa
                                     </a>

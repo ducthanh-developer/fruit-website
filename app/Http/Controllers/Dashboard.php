@@ -19,7 +19,7 @@ class Dashboard extends Controller
         $orderRecord = DB::table('bill')
             ->where('date', 'like', date('Y') . '-' . date('m') . '%')
             ->count();
-        $userRecord = DB::table('user')->count();
+        $userRecord = DB::table('users')->count();
         $revenue = DB::table('bill')
             ->join('billdetail as detail', 'detail.idBill', '=', 'bill.idBill')
             ->where('bill.date', 'like', date('Y') . '-' . date('m') . '%')
