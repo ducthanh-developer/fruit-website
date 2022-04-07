@@ -21,7 +21,7 @@ return new class extends Migration
             $table->dateTime('date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
-            $table->foreign('idUser')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
