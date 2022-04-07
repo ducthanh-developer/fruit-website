@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('productdetail', function (Blueprint $table) {
             $table->increments('idProductDetail');
             $table->unsignedInteger('idProduct');
+            $table->unsignedInteger('idTypeProduct');
             $table->double('price');
             $table->text('imgUrl');
             $table->integer('quantity')->nullable();
             $table->timestamps();
             $table->foreign('idProduct')->references('idProduct')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('idTypeProduct')->references('idTypeProduct')->on('typeproduct')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
