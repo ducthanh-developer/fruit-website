@@ -27,7 +27,6 @@ return new class extends Migration
             $table->foreign('idRole')->references('idRole')->on('role')->onUpdate('cascade')->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      *

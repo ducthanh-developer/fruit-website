@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -122,5 +123,7 @@ Route::get('/checkout', [HomeController::class, 'checkout']);
 Route::get('/shop-cart', [HomeController::class, 'shopCart']);
 //product details
 Route::get('/chi-tiet-san-pham', [HomeController::class, 'productDetails']);
+
+
 //Account
-Route::get('/tai-khoan', [HomeController::class, 'account']);
+Route::get('/tai-khoan', [AccountController::class,'profile'])->middleware('auth');

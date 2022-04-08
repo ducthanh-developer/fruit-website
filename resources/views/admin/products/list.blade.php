@@ -122,13 +122,13 @@
                             <tbody>
                                 @foreach ($productList as $product)
                                 @php
-                                     $url = 'images/' . $product->imgUrl;
+                                    $url = '' . $product->imgUrl;
                                 @endphp
                                     <tr>
                                         <td>{{ $product->idProduct }}</td>
                                         <td>{{ $product->nameProduct }}</td>
                                         <td>
-                                            <img src="{{ asset($url) }}"
+                                            <img src="{{ $url }}"
                                                 class="img-thumbnail rounded" alt="Ảnh sản phẩm" width="100" />
                                         </td>
                                         <td>

@@ -61,9 +61,4 @@ class HomeController extends Controller
     function productDetails(){
         return view('client.product_details');
     }
-    //Tài khoản
-    function account(){
-        return view('client.account');
-    }
-
 }

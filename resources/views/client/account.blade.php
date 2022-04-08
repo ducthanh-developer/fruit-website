@@ -54,7 +54,7 @@
 							</li>
 
 							<li class="nav-item p-b-16">
-								<a class="nav-link" href="#">Logout</a>
+								<a class="nav-link" href="/admin/login">Logout</a>
 							</li>
 						</ul>
 					</div>
@@ -65,14 +65,13 @@
 							<!-- - -->
 							<div class="tab-pane fade show active" id="dashboard" role="tabpanel">
 								<p class="txt-s-101 cl6 p-b-18">
-									Hello <span class="txt-s-108">hienhtt3302</span> (not <span class="txt-s-108">hienhtt3302</span>? <a href="#" class="txt-s-101 cl6 hov-cl10">Sign out</a>)
+									Hello <span class="txt-s-108"></span> (not <span class="txt-s-108"{{ Auth::user()->name }}></span>? <a href="#" class="txt-s-101 cl6 hov-cl10">Sign out</a>)
 								</p>
 
 								<p>
 									From your account dashboard you can view your recent orders, manage your shipping and billing addresses and edit your password and account details.
 								</p>
 							</div>
-
 							<!-- - -->
 							<div class="tab-pane fade" id="orders" role="tabpanel">
 								<div class="bo-all-1 bocl15 flex-w flex-sb-m p-rl-30 p-tb-10 p-rl-15-ssm">
