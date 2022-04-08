@@ -11,8 +11,12 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ordersController;
 use App\Http\Controllers\HomeController;
+<<<<<<< HEAD
 use App\Http\Controllers\ProductDetailsController;
 use App\Models\ProductDetail;
+=======
+use App\Http\Controllers\ProductPageController;
+>>>>>>> 63214ab67ae6ef312b6d67b6a687c52c6faf1118
 
 /*
 |--------------------------------------------------------------------------
@@ -113,9 +117,9 @@ Route::get('/admin/orders', [ordersController::class, 'index']);
 
 // Client Route
 
-Route::get('/product-list/{idCate}', [ProductController::class, 'productListView'])->name('product-list');
-Route::get('/product-search', [ProductController::class, 'productSearch']);
-Route::get('/product-search-price/{low}/{high}', [ProductController::class, 'productSearchPrice']);
+Route::get('/product-list/{idCate}', [ProductPageController::class, 'productListView'])->name('product-list');
+Route::get('/product-search', [ProductPageController::class, 'productSearch']);
+Route::get('/product-search-price/{low}/{high}', [ProductPageController::class, 'productSearchPrice']);
 // Trang chủ
 Route::get('/', [HomeController::class, 'index']);
 //Check out

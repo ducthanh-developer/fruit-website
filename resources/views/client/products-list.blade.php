@@ -13,9 +13,8 @@
     <script src="{{ asset('vendor/noui/nouislider.min.js') }}"></script>
     <script>
         let sort = document.getElementById('sortby');
-        sort.onchange = function (){
-            window.location.href = "";
-            console.log(sort.value);
+        sort.onchange = function() {
+            document.getElementById('form-sort').submit();
         }
     </script>
 @endpush
@@ -280,14 +279,17 @@
                         <div class="flex-w flex-r-m p-b-45 flex-row-rev">
                             <div class="flex-w flex-m p-tb-8">
                                 <div class="rs1-select2 bg0 size-w-52 bo-all-1 bocl15 m-tb-7 m-r-15">
-                                    <select class="js-select2" id="sortby" name="sort">
-                                        <option value="1">Sort by popularity</option>
-                                        <option value="2">Sort by best sell</option>
-                                        <option value="3">Sort by special</option>
-                                        <option value="4">Sort prices from low to high</option>
-                                        <option value="4">Sort prices from high to low</option>
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
+                                    <form action="" method="get" id="form-sort">
+                                        @csrf
+                                        <select class="js-select2" id="sortby" name="sort">
+                                            <option value="1">Sort by popularity</option>
+                                            <option value="2">Sort by best sell</option>
+                                            <option value="3">Sort by special</option>
+                                            <option value="4">Sort prices from low to high</option>
+                                            <option value="5">Sort prices from high to low</option>
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </form>
                                 </div>
 
                                 <div class="flex-w flex-m m-tb-7">

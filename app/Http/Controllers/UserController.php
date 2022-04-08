@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $userList = DB::table("user")->get();
+        $userList = DB::table("users")->get();
         $data = ['userList' => $userList];
         return view("admin/user/list", $data);
     }
@@ -52,14 +52,14 @@ class UserController extends Controller
             'idRole' => $request->input('idRole'),
         ];
 
-        DB::table('user')->insert($data);
+        DB::table('users')->insert($data);
         return redirect()->route('user.add')->with('alert_success', 'Tạo người dùng thành công.');
     }
 
     public function edit($id)
     {
         $listRole = DB::table('role')->get();
-        $user = DB::table("user")->join('role', 'user.idRole', '=', 'role.idRole')->where('user.idUser', '=', $id)->first();
+        $user = DB::table("users")->join('role', 'users.idRole', '=', 'role.idRole')->where('users.id', '=', $id)->first();
         $data = ['user' => $user, 'listRole' => $listRole];
         return view("admin/user/edit", $data);
     }
@@ -67,7 +67,7 @@ class UserController extends Controller
     public function postEdit(Request $request, $id)
     {
         // dd($request->all());
-        $user = DB::table('user')->where('idUser', $id);
+        $user = DB::table('users')->where('id', $id);
         $validateRules = [
             'username' => 'required|min:6',
             'fullName' => 'required|min:6',
@@ -83,7 +83,6 @@ class UserController extends Controller
             return redirect()->route("user.edit", ['id' => $id])->withErrors($validator)->withInput();
         }
 
-        // $user = DB::table('user')->where('idUser', $id);
         if ($request->has('password')) {
             $request->merge(['password' => Hash::make($request->password)]);
         }
@@ -104,7 +103,7 @@ class UserController extends Controller
     public function deleteUser($id)
     {
 
-        DB::table('user')->where('idUser', $id)->delete();
+        DB::table('users')->where('id', $id)->delete();
         return redirect()->route('user.index')->with('alert_success', 'Xóa người dùng thành công.');
     }
 }

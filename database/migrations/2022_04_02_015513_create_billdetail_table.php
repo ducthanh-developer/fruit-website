@@ -22,8 +22,8 @@ return new class extends Migration
             $table->integer('discount');
             $table->float('subtotal');
             $table->timestamps();
-            $table->foreign('idBill')->references('idBill')->on('bill')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('idProductDetail')->references('idProductDetail')->on('productdetail')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('idBill')->references('idBill')->on('bill')->onDelete('cascade');
+            $table->foreign('idProductDetail')->references('idProductDetail')->on('productdetail')->onDelete('cascade');
         });
     }
 
