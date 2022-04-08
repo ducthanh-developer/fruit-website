@@ -11,12 +11,8 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ordersController;
 use App\Http\Controllers\HomeController;
-<<<<<<< HEAD
 use App\Http\Controllers\ProductDetailsController;
 use App\Models\ProductDetail;
-=======
-use App\Http\Controllers\ProductPageController;
->>>>>>> 63214ab67ae6ef312b6d67b6a687c52c6faf1118
 
 /*
 |--------------------------------------------------------------------------
