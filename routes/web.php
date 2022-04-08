@@ -11,7 +11,12 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ordersController;
 use App\Http\Controllers\HomeController;
+<<<<<<< HEAD
+use App\Http\Controllers\ProductDetailsController;
+use App\Models\ProductDetail;
+=======
 use App\Http\Controllers\ProductPageController;
+>>>>>>> 63214ab67ae6ef312b6d67b6a687c52c6faf1118
 
 /*
 |--------------------------------------------------------------------------
@@ -122,6 +127,7 @@ Route::get('/checkout', [HomeController::class, 'checkout']);
 //shop-cart
 Route::get('/shop-cart', [HomeController::class, 'shopCart']);
 //product details
-Route::get('/chi-tiet-san-pham', [HomeController::class, 'productDetails']);
+Route::get('/chi-tiet-san-pham/{id}', [ProductDetailsController::class, 'chitiet']);
+Route::post('/addComment', [ProductDetailsController::class, 'addComment']);
 //Account
 Route::get('/tai-khoan', [HomeController::class, 'account']);

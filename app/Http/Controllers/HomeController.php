@@ -65,5 +65,5 @@ class HomeController extends Controller
     function account(){
         return view('client.account');
     }
-
+    
 }
