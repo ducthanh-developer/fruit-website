@@ -4,6 +4,7 @@
 <head>
     <title>@yield('title')</title>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.png') }}" />
@@ -33,9 +34,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/revolution/css/layers.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/revolution/css/navigation.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/revolution/css/settings.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/slide100/slide100.css') }}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <!--===============================================================================================-->
     @stack('style')
 </head>
@@ -115,7 +118,8 @@
                     </div>
 
                     <p class="txt-s-101 cl6 size-w-10 p-b-16">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        There are many variations of passages of Lorem Ipsum available, but the majority have
+                        suffered
                         alteration
                     </p>
 
@@ -357,6 +361,8 @@
     <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
     <!--===============================================================================================-->
     <script src="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('vendor/slide100/slide100.js') }}"></script>
+    <script src="{{ asset('js/slide100-custom.js') }}"></script>
     <!--===============================================================================================-->
     @stack('script')
     <script src="{{ asset('js/main.js') }}"></script>

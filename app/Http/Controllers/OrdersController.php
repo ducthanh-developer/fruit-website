@@ -14,12 +14,35 @@ class OrdersController extends Controller
     public function index()
     {
         // render list 
-        $billList = DB::table('bill')
+        $bill = DB::table('users')
+            ->join('bill', 'users.id', '=', 'bill.idUser')
+            ->join('billdetail', 'bill.idBill', '=', 'billdetail.idBill')
+            ->join('productdetail','billdetail.idProductDetail','=','productdetail.idProductDetail')
+            ->join('products','productdetail.idProduct' ,'=', 'products.idProduct')
+            ->select('users.*', 'bill.*', 'billdetail.*','products.nameProduct')
             ->get();
-        $data = ['bill' => $billList];
-        return view('admin/orders/list', $data);
+        $data = ['bill' => $bill];
+        return view('admin.orders.list',$data);
     }
+    //delete orders
+    // public function deleteOrders(){ 
+    //         DB::table('bill')->where('id', $idBill)->delete();
+    //         return redirect()->route('user.index')->with('alert_success', 'Xóa người dùng thành công.');
+    // }
 
+    // edit orders
+    public function editOrders(){
+        return view('admin.orders.edit');
+    }
+    // public function deleteOrders($id){
+    //     $order = DB::table('bill')::find($id);
+    //     if($order==null) return redirect('/admin/orders');
+    //     $order->delete();
+    //     return redirect('/admin/orders');
+    // }
+
+    public function updateOrders(){
+    }
     /**
      * Show the form for creating a new resource.
      *

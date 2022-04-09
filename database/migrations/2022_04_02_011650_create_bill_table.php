@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('idUser');
             $table->double('total');
             $table->dateTime('date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->tinyInteger('status')->default(1)->comment('1 - Đang sử lý, 2 - Đã xác nhận');
+            $table->tinyInteger('status')->default(1)->comment('1-Đang xử lý,2-Đã xác nhận,3-Đang vận chuyển');
             $table->timestamps();
             $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
         });

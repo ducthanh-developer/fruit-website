@@ -71,25 +71,23 @@
     <div class="wrap-slick5">
         <div class="slick5">
             <!-- - -->
-            @foreach($featured_products as $product)
+          @foreach($product2 as $value)
             <div class="item-slick5 p-all-15">
                 <!-- Block1 -->
                 <div class="block1">
                     <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
+                        <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                {{$product->nameProduct}}
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            {{$value->nameProduct}}
                             </a>
-
-
                             <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                {{$product->price}} $
+                            {{$value->price}}
                             </span>
 
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -106,8 +104,8 @@
                     </div>
                 </div>
             </div>
+           
             @endforeach
-
         </div>
 
         <div class="wrap-dot-slick5 p-rl-15 p-t-40"></div>
@@ -221,55 +219,83 @@
                 <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10 how-active1" data-filter="*">
                     Tất cả sản phẩm
                 </button>
-                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".shirt-fill">
-                    Shirt
+                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".fruit">
+                    Trái cây
                 </button>
 
-                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".trousers-fill">
-                    Quần
+                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".vegetable">
+                    Rau củ
                 </button>
 
-                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".shoes-fill">
-                    Giày
+                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".meat">
+                    Thịt, trứng và cá
                 </button>
 
-                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".accessory-fill">
-                    Phụ kiện
+                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".rice">
+                    Gạo - Thực phẩm khô
                 </button>
 
-                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".clock-fill">
-                    Đồng hồ
-                </button>
-                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".short-fill">
-                    Quần short
-                </button>
-                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".backpack-fill">
-                    Balo
+                <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".butter">
+                    Bơ sữa
                 </button>
             </div>
         </div>
 
         <div class="row isotope-grid">
-            <!-- - -->
-            @foreach($shirt as $value)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item shirt-fill">
+            @foreach($fruit as $value)
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item fruit">
                 <!-- Block1 -->
                 <div class="block1">
                     <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
+                        <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                {{$value->nameProduct}}
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            {{$value->nameProduct}}
                             </a>
 
                             <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                {{$value->price}}$
+                            {{$value->price}}
                             </span>
 
 
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
+                                    <img src="images/icons/icon-view.png" alt="ICON">
+                                </a>
+
+                                <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
+                                    <img src="images/icons/icon-cart.png" alt="ICON">
+                                </a>
+
+                                <a href="wishlist.html" class="block1-icon flex-c-m wrap-pic-max-w js-addwish-b1">
+                                    <img class="icon-addwish-b1" src="images/icons/icon-heart.png" alt="ICON">
+                                    <img class="icon-addedwish-b1" src="images/icons/icon-heart2.png" alt="ICON">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           @endforeach
+           @foreach($vegetable as $value)
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item vegetable">
+                <!-- Block1 -->
+                <div class="block1">
+                    <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
+                        <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
+
+                        <div class="block1-content flex-col-c-m p-b-46">
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            {{$value->nameProduct}}
+                            </a>
+
+                            <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
+                            {{$value->price}}
+                            </span>
+
+                            <div class="block1-wrap-icon flex-c-m flex-w trans-05">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -287,24 +313,25 @@
                 </div>
             </div>
             @endforeach
-            @foreach($trousers as $value)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item trousers-fill">
+           @foreach($meat as $value)
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item meat">
                 <!-- Block1 -->
                 <div class="block1">
                     <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
+                        <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                                 {{$value->nameProduct}}
                             </a>
 
                             <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                {{$value->price}}$
+                            {{$value->price}}
                             </span>
 
+
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -322,25 +349,24 @@
                 </div>
             </div>
             @endforeach
-            @foreach($shoes as $value)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item shoes-fill">
+           @foreach($rice as $value)
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item rice">
                 <!-- Block1 -->
                 <div class="block1">
                     <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
+                        <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                                 {{$value->nameProduct}}
                             </a>
 
                             <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                {{$value->price}}$
+                            {{$value->price}}
                             </span>
 
-
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -358,130 +384,23 @@
                 </div>
             </div>
             @endforeach
-            @foreach($accessory as $value)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item accessory-fill">
-                <!-- Block1 -->
+            @foreach($butter as $value)
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item butter">
                 <div class="block1">
                     <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
+                        <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                {{$value->nameProduct}}
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            {{$value->nameProduct}}
                             </a>
 
                             <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                {{$value->price}}$
+                            {{$value->price}}
                             </span>
 
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
-                                    <img src="images/icons/icon-view.png" alt="ICON">
-                                </a>
-
-                                <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
-                                    <img src="images/icons/icon-cart.png" alt="ICON">
-                                </a>
-
-                                <a href="wishlist.html" class="block1-icon flex-c-m wrap-pic-max-w js-addwish-b1">
-                                    <img class="icon-addwish-b1" src="images/icons/icon-heart.png" alt="ICON">
-                                    <img class="icon-addedwish-b1" src="images/icons/icon-heart2.png" alt="ICON">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-            @foreach($clock as $value)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item clock-fill">
-                <!-- Block1 -->
-                <div class="block1">
-                    <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
-
-                        <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                {{$value->nameProduct}}
-                            </a>
-
-                            <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                {{$value->price}}$
-                            </span>
-
-                            <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
-                                    <img src="images/icons/icon-view.png" alt="ICON">
-                                </a>
-
-                                <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
-                                    <img src="images/icons/icon-cart.png" alt="ICON">
-                                </a>
-
-                                <a href="wishlist.html" class="block1-icon flex-c-m wrap-pic-max-w js-addwish-b1">
-                                    <img class="icon-addwish-b1" src="images/icons/icon-heart.png" alt="ICON">
-                                    <img class="icon-addedwish-b1" src="images/icons/icon-heart2.png" alt="ICON">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-            @foreach($short as $value)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item short-fill">
-                <!-- Block1 -->
-                <div class="block1">
-                    <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
-
-                        <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                {{$value->nameProduct}}
-                            </a>
-
-                            <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                {{$value->price}}$
-                            </span>
-
-                            <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
-                                    <img src="images/icons/icon-view.png" alt="ICON">
-                                </a>
-
-                                <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
-                                    <img src="images/icons/icon-cart.png" alt="ICON">
-                                </a>
-
-                                <a href="wishlist.html" class="block1-icon flex-c-m wrap-pic-max-w js-addwish-b1">
-                                    <img class="icon-addwish-b1" src="images/icons/icon-heart.png" alt="ICON">
-                                    <img class="icon-addedwish-b1" src="images/icons/icon-heart2.png" alt="ICON">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-            @foreach($backpack as $value)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item backpack-fill">
-                <!-- Block1 -->
-                <div class="block1">
-                    <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
-
-                        <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                {{$value->nameProduct}}
-                            </a>
-
-                            <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                {{$value->price}}$
-                            </span>
-
-
-                            <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -671,24 +590,24 @@
 
                         <div class="slick6">
                             <!-- - -->
-                            @foreach($product_one as $product)
+                           @foreach($product1 as $value)
                             <div class="item-slick6 p-all-15">
                                 <!-- Block1 -->
                                 <div class="block1 rs1-block1">
                                     <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
+                                        <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                                         <div class="block1-content flex-col-c-m p-b-36">
-                                            <a href="product-single.html" class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                                {{$product->nameProduct}}
+                                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                                              {{$value->nameProduct}}
                                             </a>
 
                                             <span class="block1-content-more txt-m-111 cl9 p-t-18 trans-04">
-                                                {{$product->price}} $
+                                            {{$value->price}}
                                             </span>
 
                                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                                     <img src="images/icons/icon-view.png" alt="ICON">
                                                 </a>
 
@@ -705,9 +624,9 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
+                           
                             <!-- - -->
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -747,24 +666,25 @@
 
                         <div class="slick6">
                             <!-- - -->
-                            @foreach($product_two as $product)
+                           <!-- product two -->
+                           @foreach($product1 as $value)
                             <div class="item-slick6 p-all-15">
                                 <!-- Block1 -->
                                 <div class="block1 rs1-block1">
                                     <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                                        <img src="{{asset('images/'.$product->imgUrl)}}" alt="IMG">
+                                        <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                                         <div class="block1-content flex-col-c-m p-b-36">
-                                            <a href="product-single.html" class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                                {{$product->nameProduct}}
+                                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                                              {{$value->nameProduct}}
                                             </a>
 
                                             <span class="block1-content-more txt-m-111 cl9 p-t-18 trans-04">
-                                                {{$product->price}} $
+                                            {{$value->price}}
                                             </span>
 
                                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                                     <img src="images/icons/icon-view.png" alt="ICON">
                                                 </a>
 
@@ -781,7 +701,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
+                           @endforeach
                             <!-- - -->
 
                         </div>
