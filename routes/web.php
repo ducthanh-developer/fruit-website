@@ -13,6 +13,7 @@ use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductDetailsController;
+use App\Http\Controllers\ProductPageController;
 use App\Models\ProductDetail;
 
 /*
@@ -122,14 +123,8 @@ Route::get('/checkout', [HomeController::class, 'checkout']);
 //shop-cart
 Route::get('/shop-cart', [HomeController::class, 'shopCart']);
 //product details
-<<<<<<< HEAD
-Route::get('/chi-tiet-san-pham', [HomeController::class, 'productDetails']);
-
-
-=======
 Route::get('/chi-tiet-san-pham/{id}', [ProductDetailsController::class, 'chitiet']);
 Route::post('/addComment', [ProductDetailsController::class, 'addComment']);
->>>>>>> f44ae3ec24fbba640bafb9102107db617ba4a3b3
 //Account
 Route::get('/account', [AccountController::class,'profile'])->name('user-profile');
 //trang edit profile
@@ -137,14 +132,15 @@ Route::post('/account/update',[AccountController::class,'update'])->name('user-u
 //Trang update profile
 Route::get('/account/edit',[AccountController::class,'edit'])->name('user-edit');
 //Order in client
-Route::get('/account/orders',[AccountController::class,'orders'])->name('orders');
+Route::get('/account/orders',[AccountController::class,'profile'])->name('orders');
 
 
 //Orders
 //Display orders
 Route::get('/admin/orders', [ordersController::class, 'index']);
-//delete
-Route::get('/admin/orders/delete',[OrdersController::class,'deleteOrders'])->name('order-delete');
+//delete;
+Route::get('/admin/orders/delete/{id}',[OrdersController::class,'deleteOrders'])->name('order-delete');
 //Edit order
-Route::get('admin/orders/edit/',[OrdersController::class,'editOrders'])->name('order-edit');
-Route::post('/orders/update/',[OrdersController::class,'updateOrders'])->name('order-update');
+Route::get('admin/orders/edit/{id}',[OrdersController::class,'editOrders'])->name('order-edit');
+Route::post('admin/orders/update/{id}',[OrdersController::class,'updateOrders'])->name('order-update');
+Route::get('/account/orders/delete/{id}',[OrdersController::class,'deleteOrders'])->name('account-order-delete');

@@ -205,8 +205,8 @@
 																			}
 																			@endif
 																		<td class="d-flex" class="project-actions text-center">
-																			<a class="btn btn-danger btn-sm" onclick="deleteAlert()">
-																				Cancelled
+																			<a href="/account/orders/delete/{{$bill->idBill}}" class="btn btn-danger btn-sm" onclick="deleteAlert()">
+																				Cancelled 
 																			</a>
 																		</td>
 																	</tr>

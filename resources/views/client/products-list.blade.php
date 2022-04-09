@@ -326,7 +326,7 @@
                                                 <img src="{{ asset('' . $product->imgUrl) }}" alt="IMG">
 
                                                 <div class="block1-content flex-col-c-m p-b-46">
-                                                    <a href="product-single.html"
+                                                    <a href="/chi-tiet-san-pham/{{$product->idProduct}}    "
                                                         class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                                                         {{ $product->nameProduct }}
                                                     </a>

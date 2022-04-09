@@ -37,7 +37,7 @@ class AccountController extends Controller
         return redirect()->back();
     }
     public function profile(){
-        $bill= DB::table('users')->where('id', '=', Auth::user()->id)
+        $bill= DB::table('users')
             ->join('bill', 'users.id', '=', 'bill.idUser')
             ->join('billdetail', 'bill.idBill', '=', 'billdetail.idBill')
             ->join('productdetail','billdetail.idProductDetail','=','productdetail.idProductDetail')

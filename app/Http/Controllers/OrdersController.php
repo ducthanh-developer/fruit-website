@@ -25,23 +25,20 @@ class OrdersController extends Controller
         return view('admin.orders.list',$data);
     }
     //delete orders
-    // public function deleteOrders(){ 
-    //         DB::table('bill')->where('id', $idBill)->delete();
-    //         return redirect()->route('user.index')->with('alert_success', 'Xóa người dùng thành công.');
-    // }
+    public function deleteOrders($id){ 
+            DB::table('bill')->where('idBill', $id)->delete();
+            return redirect()->route('orders')->with('alert_success', 'Xóa người dùng thành công.');
+    }
 
     // edit orders
-    public function editOrders(){
+    public function editOrders($id){
         return view('admin.orders.edit');
     }
-    // public function deleteOrders($id){
-    //     $order = DB::table('bill')::find($id);
-    //     if($order==null) return redirect('/admin/orders');
-    //     $order->delete();
-    //     return redirect('/admin/orders');
-    // }
 
-    public function updateOrders(){
+
+    public function updateOrders($id){
+        DB::table('bill')->where('idBill','=','$id')
+        ->update(['status'=>$_POST['category']]);
     }
     /**
      * Show the form for creating a new resource.
