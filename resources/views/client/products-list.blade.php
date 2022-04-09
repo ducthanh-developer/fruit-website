@@ -323,10 +323,10 @@
                                         <!-- Block1 -->
                                         <div class="block1">
                                             <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                                                <img src="{{ asset('' . $product->imgUrl) }}" alt="IMG">
+                                                <img src="{{ asset('images/' . $product->imgUrl) }}" alt="IMG">
 
                                                 <div class="block1-content flex-col-c-m p-b-46">
-                                                    <a href="/chi-tiet-san-pham/{{$product->idProduct}}    "
+                                                    <a href="/chi-tiet-san-pham/{{$product->idProduct}}"
                                                         class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                                                         {{ $product->nameProduct }}
                                                     </a>
@@ -336,17 +336,23 @@
                                                     </span>
 
                                                     <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                                        <a href="product-single.html"
+                                                        <a href="/chi-tiet-san-pham/{{$product->idProduct}}"
                                                             class="block1-icon flex-c-m wrap-pic-max-w">
                                                             <img src="{{ asset('images/icons/icon-view.png') }}"
                                                                 alt="ICON">
                                                         </a>
-
-                                                        <a href="#"
-                                                            class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
-                                                            <img src="{{ asset('images/icons/icon-cart.png') }}"
-                                                                alt="ICON">
-                                                        </a>
+                                                        <form action="{{ route('add-cart') }}" method="post" id="form-add">
+                                                            @csrf
+                                                            <input type="hidden" name="idProduct" value="{{ $product->idProductDetail }}">
+                                                            <input type="hidden" name="nameProduct" value="{{ $product->nameProduct }}">
+                                                            <input type="hidden" name="imgUrl" value="{{ $product->imgUrl }}">
+                                                            <input type="hidden" name="price" value="{{ $product->price }}">
+                                                            <button type="submit"
+                                                                class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
+                                                                <img src="{{ asset('images/icons/icon-cart.png') }}"
+                                                                    alt="ICON">
+                                                            </button>
+                                                        </form>
 
                                                         <a href="wishlist.html"
                                                             class="block1-icon flex-c-m wrap-pic-max-w js-addwish-b1">

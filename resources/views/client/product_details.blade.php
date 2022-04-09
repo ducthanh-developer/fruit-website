@@ -39,6 +39,7 @@ Chi tiết sản phẩm
 				});
 			}
 			$btn_cmt.click(function() {
+				alert(1);
 				self.addCmt();
 			});
 		}
