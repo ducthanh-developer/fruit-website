@@ -47,7 +47,7 @@ class HomeController extends Controller
             'short' => $short,
             'backpack' => $backpack,
         ];
-        return view('client.home', $data);
+        return view('client.index', $data);
     }
     //Checkout
     function checkout(){

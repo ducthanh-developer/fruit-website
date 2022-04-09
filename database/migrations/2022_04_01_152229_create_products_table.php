@@ -23,7 +23,7 @@ return new class extends Migration
             $table->dateTime('date')->default(DB::raw('CURRENT_TIMESTAMP'));    
             $table->text('description');    
             $table->timestamps();
-            $table->foreign('idCategory')->references('idCategory')->on('category')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('idCategory')->references('idCategory')->on('category')->onDelete('cascade');
         });
     }
 

@@ -37,6 +37,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('') }}dist/css/adminlte.min.css">
     <!--===============================================================================================-->
     @stack('style')
 </head>
@@ -55,67 +56,25 @@
                             <ul class="main-menu">
                                 <li class="active-menu">
                                     <a href="index.html">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">Homepage 1</a></li>
-                                        <li><a href="home-02.html">Homepage 2</a></li>
-                                        <li><a href="home-03.html">Homepage 3</a></li>
-                                        <li><a href="home-04.html">Homepage 4</a></li>
-                                        <li><a href="home-05.html">Homepage 5</a></li>
-                                        <li><a href="home-06.html">Homepage 6</a></li>
-                                    </ul>
                                 </li>
 
-                                <li>
-                                    <a href="#">Page</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="about-01.html">About 1</a></li>
-                                        <li><a href="about-02.html">About 2</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                        <li><a href="error.html">404 Error</a></li>
-                                        <li><a href="checkout.html">CheckOut</a></li>
-                                        <li><a href="account.html">My Account</a></li>
-                                        <li><a href="account-lost-pass.html">My Account Lost Pass</a></li>
-                                        <li><a href="account-register.html">My Account Register</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                    </ul>
-                                </li>
 
                                 <li>
                                     <a href="shop-sidebar-grid.html">Shop</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="shop-sidebar-grid.html">Shop Sidebar Grid</a></li>
-                                        <li><a href="shop-sidebar-list.html">Shop Sidebar List</a></li>
-                                        <li><a href="shop-product-grid.html">Shop Product Grid</a></li>
-                                        <li><a href="shop-product-list.html">Shop Product List</a></li>
-                                        <li><a href="product-single.html">Product Single</a></li>
-                                        <li><a href="shop-cart.html">Shop Cart</a></li>
-                                    </ul>
                                 </li>
 
                                 <li>
                                     <a href="blog-list.html">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-list.html">Blog List</a></li>
-                                        <li><a href="blog-grid-01.html">Blog Grid 1</a></li>
-                                        <li><a href="blog-grid-02.html">Blog Grid 2</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
                                 </li>
 
                                 <li>
                                     <a href="gallery-01.html">Gallery</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="gallery-01.html">Gallery 1</a></li>
-                                        <li><a href="gallery-02.html">Gallery 2</a></li>
-                                    </ul>
+                                    
                                 </li>
 
                                 <li>
                                     <a href="contact-01.html">Contact</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="contact-01.html">Contact 1</a></li>
-                                        <li><a href="contact-02.html">Contact 2</a></li>
-                                    </ul>
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -132,6 +91,14 @@
                     <div class="right-header">
                         <!-- Icon header -->
                         <div class="wrap-icon-header flex-w flex-r-m h-full wrap-menu-click p-t-8">
+                            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                                    <div class="image">
+                                        <a href="{{Route('user-profile')}}"><img src="{{ asset('') }}images/avt.jpg" class="img-circle elevation-2" alt="User Image" /></a>
+                                    </div>
+                                    <div class="info text-info">
+                                        <a href="{{Route('user-profile')}}"></a>
+                                    </div>
+                            </div>
                             <div class="h-full flex-m">
                                 <div class="icon-header-item flex-c-m trans-04 js-show-modal-search">
                                     <img src="{{ asset('') }}images/icons/icon-search.png" alt="SEARCH">

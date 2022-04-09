@@ -117,7 +117,7 @@ Sửa người dùng
                 </div>
                 <div class="form-group col-6">
                     <label for="fullName">Tên người dùng</label>
-                    <input type="text" id="fullName" name="fullName" class="form-control" value="{{$user->fullName}}">
+                    <input type="text" id="fullName" name="fullName" class="form-control" value="{{$user->name}}">
                 </div>
             </div>
             <div class="row">
