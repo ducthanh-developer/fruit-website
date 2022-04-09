@@ -323,7 +323,7 @@
                                         <!-- Block1 -->
                                         <div class="block1">
                                             <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                                                <img src="{{ asset('images/' . $product->imgUrl) }}" alt="IMG">
+                                                <img src="{{ asset('' . $product->imgUrl) }}" alt="IMG">
 
                                                 <div class="block1-content flex-col-c-m p-b-46">
                                                     <a href="product-single.html"

@@ -24,6 +24,22 @@ class HomeController extends Controller
      */
     public function index()
     {
+    //Checkout
+    function checkout(){
+        return view('client.checkout');
+    }
+    //Shop-cart
+    function shopCart(){
+        return view('client.shop-cart');
+    }
+    //Chi tiet san pham
+    function productDetails(){
+        return view('client.product_details');
+    }
+    //Tài khoản
+    function account(){
+        return view('client.account');
+    }
         $featured_products = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->where('idTypeProduct', 1)->orderBy('idProductDetail', 'desc')->get();
         $fruit = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->where('productdetail.idTypeProduct', 2)->where('category.idGroupProduct', 1)->orderBy('productdetail.idProductDetail', 'desc')->take(8)->get();
         $vegetable = DB::table('productdetail')->join('products', 'productdetail.idProduct', '=', 'products.idProduct')->join('category', 'products.idCategory', '=', 'category.idCategory')->where('productdetail.idTypeProduct', 2)->where('category.idGroupProduct', 2)->orderBy('productdetail.idProductDetail', 'desc')->take(8)->get();

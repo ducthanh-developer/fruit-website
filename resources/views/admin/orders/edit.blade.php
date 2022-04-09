@@ -48,9 +48,9 @@
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "Chỉnh sửa của bạn đã được lưu",
+                title: "Your changes have been updated",
                 showConfirmButton: false,
-                timer: 1500,
+                timer: 3000,
             });
         };
 
@@ -88,76 +88,65 @@
             });
         });
     </script>
+<!-- bs-custom-file-input -->
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+<!-- Page specific script -->
+<script>
+    $(function() {
+        bsCustomFileInput.init();
+    });
+    const ipnFileElement = document.getElementById('customFile')
+
+    ipnFileElement.addEventListener('change', function(e) {
+        const files = e.target.files
+        const file = files[0]
+
+        const fileReader = new FileReader()
+        fileReader.readAsDataURL(file)
+        fileReader.onload = function() {
+            const url = fileReader.result
+            const htmlString = `<img src="${url}" alt="${file.name}" class="img-thumbnail preview-img" style="height: 150px !important" />`
+            document.getElementById('preview').innerHTML = htmlString
+        }
+    })
+</script>
 @endpush
 
 @section('page-title')
-    Quản lý đơn hàng
+Edit orders
 @endsection
 
 @section('content')
-    <!-- /.card -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table id="example2" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="width: 5%">ID Bills</th>
-                                    <th style="width: 15%" class="text-center">User</th>
-                                    <th style="width: 30%" class="text-center">Sản phẩm</th>
-                                    <th style="width: 10%" class="text-center">Tổng tiền</th>
-                                    <th style="width: 10%" class="text-center">Số điện thoại</th>
-                                    <th style="width: 10%" class="text-center">Địa chỉ</th>
-                                    <th style="width: 15%" class="text-center">Thao tác</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($bill as $bill)
-                                    <tr>
-                                        <td>{{$bill->idBill}}</td>
-                                        <td>{{$bill->name}}</td>
-                                        <td>{{$bill->nameProduct}}</td>
-                                        <td >
-                                            {{$bill->total}}
-                                        </td>
-                                        <td>
-                                            {{$bill->phoneNumber}}   
-                                        </td>
-                                        <td class="d-flex">
-                                            {{$bill->address}}   
-                                        </td>
-                                        <td class="project-actions text-center">
-                                            <a href="/orders/delete/{{$bill->idBill}}" class="btn btn-danger btn-sm" onclick="deleteAlert()">
-                                                <i class="fas fa-trash"> </i>
-                                                Delete 
-                                            </a>                                          
-                                            <a href="/orders/edit" class="btn btn-success btn-sm">
-                                                <i class="fa-solid fa-book-arrow-right">Edit</i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                            {{-- <tfoot>
-                                <tr>
-                                    <th style="width: 5%">ID</th>
-                                    <th style="width: 15%" class="text-center">Tên sản phẩm</th>
-                                    <th style="width: 50%" class="text-center">Mô tả</th>
-                                    <th style="width: 10%" class="text-center">Giá</th>
-                                    <th style="width: 15%" class="text-center">Thao tác</th>
-                                </tr>
-                            </tfoot> --}}
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div>
-            <!-- /.col -->
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Trạng thái đơn hàng</h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
         </div>
-        <!-- /.row -->
     </div>
+    <div class="card-body">
+        <form action="{{route('order-update')}}" enctype="multipart/form-data" method="post">
+            @method('PUT')
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="category">Edit status</label>
+                    <select id="category" class="form-control custom-select" name="category">
+                        <option disabled="">status</option>
+                        <option value="">Chờ xác nhận</option>
+                        <option value="">Đang chuẩn bị</option>
+                        <option value="">Đang vận chuyển</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="reset" class="btn btn-secondary mr-2">Exit</button>
+                    <input onclick="successAlert()" type="submit" value="Save" class="btn btn-success">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection

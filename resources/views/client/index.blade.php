@@ -71,7 +71,7 @@
     <div class="wrap-slick5">
         <div class="slick5">
             <!-- - -->
-          @foreach($featured_products as $value)
+          @foreach($data as $value)
             <div class="item-slick5 p-all-15">
                 <!-- Block1 -->
                 <div class="block1">
