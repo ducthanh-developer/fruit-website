@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class ProductController extends Controller
 {
 
@@ -88,13 +89,17 @@ class ProductController extends Controller
     public function editProduct(Request $request)
     {
         // edit product
+        if ($request->hasFile('image')) {
+            $imgUrl = $this->uploadImage($request);
+        } else {
+            $imgUrl = $request->input('imageName');
+        }
         $id = $request->input('id');
         $nameProduct = $request->input('product-name');
         $description = $request->input('description');
         $idCategory = $request->input('category');
         $price = $request->input('price');
         $quantity = $request->input('quantity');
-        $imgUrl = $this->uploadImage($request);
         $idTypeProduct = $request->idTypeProduct;
         DB::table('products')
             ->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')

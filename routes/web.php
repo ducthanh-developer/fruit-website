@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -116,11 +117,12 @@ Route::get('/product-list/{idCate}', [ProductPageController::class, 'productList
 Route::get('/product-search', [ProductPageController::class, 'productSearch']);
 Route::get('/product-search-price/{low}/{high}', [ProductPageController::class, 'productSearchPrice']);
 // Trang chủ
-Route::get('/', [HomeController::class, 'index']);
-//Check out
-Route::get('/checkout', [HomeController::class, 'checkout']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 //shop-cart
-Route::get('/shop-cart', [HomeController::class, 'shopCart']);
+Route::get('/shop-cart', [CartController::class, 'cartView'])->name('shopping-cart');
+Route::post('/add-cart',[CartController::class, 'addCart'])->name('add-cart');
+Route::post('/update-cart',[CartController::class, 'updateCart'])->name('update-cart');
+Route::get('/checkout',[CartController::class, 'checkout'])->name('checkout')->middleware('auth');
 //product details
 Route::get('/chi-tiet-san-pham', [HomeController::class, 'productDetails']);
 //Account

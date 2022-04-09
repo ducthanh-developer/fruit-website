@@ -17,10 +17,10 @@ return new class extends Migration
             $table->increments('idBillDetails');
             $table->unsignedInteger('idBill');
             $table->unsignedInteger('idProductDetail');
-            $table->float('unitPrice');
+            $table->double('unitPrice');
             $table->integer('quantity');
-            $table->integer('discount');
-            $table->float('subtotal');
+            $table->integer('discount')->default(0);
+            $table->double('subtotal');
             $table->timestamps();
             $table->foreign('idBill')->references('idBill')->on('bill')->onDelete('cascade');
             $table->foreign('idProductDetail')->references('idProductDetail')->on('productdetail')->onDelete('cascade');

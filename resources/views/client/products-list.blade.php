@@ -341,12 +341,18 @@
                                                             <img src="{{ asset('images/icons/icon-view.png') }}"
                                                                 alt="ICON">
                                                         </a>
-
-                                                        <a href="#"
-                                                            class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
-                                                            <img src="{{ asset('images/icons/icon-cart.png') }}"
-                                                                alt="ICON">
-                                                        </a>
+                                                        <form action="{{ route('add-cart') }}" method="post" id="form-add">
+                                                            @csrf
+                                                            <input type="hidden" name="idProduct" value="{{ $product->idProductDetail }}">
+                                                            <input type="hidden" name="nameProduct" value="{{ $product->nameProduct }}">
+                                                            <input type="hidden" name="imgUrl" value="{{ $product->imgUrl }}">
+                                                            <input type="hidden" name="price" value="{{ $product->price }}">
+                                                            <button type="submit"
+                                                                class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
+                                                                <img src="{{ asset('images/icons/icon-cart.png') }}"
+                                                                    alt="ICON">
+                                                            </button>
+                                                        </form>
 
                                                         <a href="wishlist.html"
                                                             class="block1-icon flex-c-m wrap-pic-max-w js-addwish-b1">
