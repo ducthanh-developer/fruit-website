@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('bill', function (Blueprint $table) {
             $table->increments('idBill');
             $table->unsignedBigInteger('idUser');
-            $table->float('total');
+            $table->double('total');
             $table->dateTime('date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->tinyInteger('status')->default(1)->comment('1-Đang xử lý,2-Đã xác nhận,3-Đang vận chuyển');
             $table->timestamps();

@@ -71,7 +71,7 @@
     <div class="wrap-slick5">
         <div class="slick5">
             <!-- - -->
-          @foreach($data as $value)
+          @foreach($product2 as $value)
             <div class="item-slick5 p-all-15">
                 <!-- Block1 -->
                 <div class="block1">
@@ -79,7 +79,7 @@
                         <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                             {{$value->nameProduct}}
                             </a>
                             <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
@@ -87,7 +87,7 @@
                             </span>
 
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -250,7 +250,7 @@
                         <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                             {{$value->nameProduct}}
                             </a>
 
@@ -260,7 +260,7 @@
 
 
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -286,7 +286,7 @@
                         <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                             {{$value->nameProduct}}
                             </a>
 
@@ -295,7 +295,7 @@
                             </span>
 
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -321,7 +321,7 @@
                         <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                                 {{$value->nameProduct}}
                             </a>
 
@@ -331,7 +331,7 @@
 
 
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -357,7 +357,7 @@
                         <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                                 {{$value->nameProduct}}
                             </a>
 
@@ -366,7 +366,7 @@
                             </span>
 
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -391,7 +391,7 @@
                         <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                         <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                             {{$value->nameProduct}}
                             </a>
 
@@ -400,7 +400,7 @@
                             </span>
 
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="images/icons/icon-view.png" alt="ICON">
                                 </a>
 
@@ -598,7 +598,7 @@
                                         <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                                         <div class="block1-content flex-col-c-m p-b-36">
-                                            <a href="product-single.html" class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                                               {{$value->nameProduct}}
                                             </a>
 
@@ -607,7 +607,7 @@
                                             </span>
 
                                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                                     <img src="images/icons/icon-view.png" alt="ICON">
                                                 </a>
 
@@ -675,7 +675,7 @@
                                         <img src="{{asset('images/'.$value->imgUrl)}}" alt="IMG">
 
                                         <div class="block1-content flex-col-c-m p-b-36">
-                                            <a href="product-single.html" class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                                            <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                                               {{$value->nameProduct}}
                                             </a>
 
@@ -684,7 +684,7 @@
                                             </span>
 
                                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                                <a href="product-single.html" class="block1-icon flex-c-m wrap-pic-max-w">
+                                                <a href="/chi-tiet-san-pham/{{$value->idProduct}}" class="block1-icon flex-c-m wrap-pic-max-w">
                                                     <img src="images/icons/icon-view.png" alt="ICON">
                                                 </a>
 

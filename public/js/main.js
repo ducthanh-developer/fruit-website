@@ -264,11 +264,10 @@
         $('.js-addcart-b1').each(function(){
             var nameProduct = $(this).parent().parent().find('.js-name-b1').html();
             $(this).on('click', function(e){
-                e.preventDefault();
+                // e.preventDefault();
                 swal(nameProduct, "is added to cart !", "success");
             });
         });
-
 
         /*---------------------------------------------*/
         $('.js-addwish1').each(function(){
@@ -519,17 +518,17 @@
 
     /*==================================================================
     [ +/- num product ]*/
-    try {
-        $('.btn-num-product-down').on('click', function(){
-            var numProduct = Number($(this).next().val());
-            if(numProduct > 0) $(this).next().val(numProduct - 1);
-        });
+    // try {
+    //     $('.btn-num-product-down').on('click', function(){
+    //         var numProduct = Number($(this).next().val());
+    //         if(numProduct > 0) $(this).next().val(numProduct - 1);
+    //     });
 
-        $('.btn-num-product-up').on('click', function(){
-            var numProduct = Number($(this).prev().val());
-            $(this).prev().val(numProduct + 1);
-        });
-    } catch(er) {console.log(er);}
+    //     $('.btn-num-product-up').on('click', function(){
+    //         var numProduct = Number($(this).prev().val());
+    //         $(this).prev().val(numProduct + 1);
+    //     });
+    // } catch(er) {console.log(er);}
         
     /*==================================================================
     [ Rating ]*/

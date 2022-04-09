@@ -128,7 +128,7 @@
                                         <td>{{ $product->idProduct }}</td>
                                         <td>{{ $product->nameProduct }}</td>
                                         <td>
-                                            <img src="{{ $url }}"
+                                            <img src="{{ asset('images/'.$product->imgUrl) }}"
                                                 class="img-thumbnail rounded" alt="Ảnh sản phẩm" width="100" />
                                         </td>
                                         <td>
