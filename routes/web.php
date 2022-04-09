@@ -12,7 +12,8 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductPageController;
+use App\Http\Controllers\ProductDetailsController;
+use App\Models\ProductDetail;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,9 +122,14 @@ Route::get('/checkout', [HomeController::class, 'checkout']);
 //shop-cart
 Route::get('/shop-cart', [HomeController::class, 'shopCart']);
 //product details
+<<<<<<< HEAD
 Route::get('/chi-tiet-san-pham', [HomeController::class, 'productDetails']);
 
 
+=======
+Route::get('/chi-tiet-san-pham/{id}', [ProductDetailsController::class, 'chitiet']);
+Route::post('/addComment', [ProductDetailsController::class, 'addComment']);
+>>>>>>> f44ae3ec24fbba640bafb9102107db617ba4a3b3
 //Account
 Route::get('/account', [AccountController::class,'profile'])->name('user-profile');
 //trang edit profile

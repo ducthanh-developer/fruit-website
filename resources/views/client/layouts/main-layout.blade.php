@@ -4,6 +4,7 @@
 <head>
     <title>@yield('title')</title>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.png') }}" />
@@ -37,7 +38,12 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('') }}dist/css/adminlte.min.css">
+=======
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+>>>>>>> f44ae3ec24fbba640bafb9102107db617ba4a3b3
     <!--===============================================================================================-->
     @stack('style')
 </head>
@@ -765,3 +771,4 @@
 </body>
 
 </html>
+
