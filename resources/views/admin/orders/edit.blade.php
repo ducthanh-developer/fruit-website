@@ -126,9 +126,10 @@ Edit orders
             </button>
         </div>
     </div>
+    @foreach($bill as bill)
     <div class="card-body">
-        <form action="{{route('order-update')}}" enctype="multipart/form-data" method="post">
-            @method('PUT')
+        <form action="admin/orders/update/{{$bill->idBill}}" enctype="multipart/form-data" method="POST">
+            @csrf
             <div class="row">
                 <div class="form-group col-6">
                     <label for="category">Edit status</label>
@@ -148,5 +149,6 @@ Edit orders
             </div>
         </form>
     </div>
+    @endforeach
 </div>
 @endsection

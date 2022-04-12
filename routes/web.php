@@ -127,6 +127,9 @@ Route::get('/checkout',[CartController::class, 'checkout'])->name('checkout')->m
 //product details
 Route::get('/chi-tiet-san-pham/{id}', [ProductDetailsController::class, 'chitiet']);
 Route::post('/addComment', [ProductDetailsController::class, 'addComment']);
+
+
+
 //Account
 Route::get('/account', [AccountController::class,'profile'])->name('user-profile');
 //trang edit profile
@@ -134,7 +137,9 @@ Route::post('/account/update',[AccountController::class,'update'])->name('user-u
 //Trang update profile
 Route::get('/account/edit',[AccountController::class,'edit'])->name('user-edit');
 //Order in client
-Route::get('/account/orders',[AccountController::class,'profile'])->name('orders');
+Route::get('/account/orders',[AccountController::class,'profile'])->name('orders-client');
+//Delete orders from profile page
+Route::get('/account/orders/delete/{id}',[OrdersController::class,'deleteOrdersClient'])->name('account-order-delete');
 
 
 //Orders
@@ -145,4 +150,3 @@ Route::get('/admin/orders/delete/{id}',[OrdersController::class,'deleteOrders'])
 //Edit order
 Route::get('admin/orders/edit/{id}',[OrdersController::class,'editOrders'])->name('order-edit');
 Route::post('admin/orders/update/{id}',[OrdersController::class,'updateOrders'])->name('order-update');
-Route::get('/account/orders/delete/{id}',[OrdersController::class,'deleteOrders'])->name('account-order-delete');

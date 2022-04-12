@@ -30,6 +30,11 @@ class OrdersController extends Controller
             return redirect()->route('orders')->with('alert_success', 'Xóa người dùng thành công.');
     }
 
+    public function deleteOrdersClient($id){ 
+        DB::table('bill')->where('idBill', $id)->delete();
+        return redirect()->route('orders-client')->with('alert_success', 'Xóa người dùng thành công.');
+}
+
     // edit orders
     public function editOrders($id){
         return view('admin.orders.edit');

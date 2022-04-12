@@ -54,7 +54,7 @@
                     <div class="wrap-icon-header flex-w flex-r-m h-full wrap-menu-click p-t-8">
                         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                             <div class="image">
-                                <img src="{{ asset('')}}images/avt.jpg" class="img-circle elevation-2" alt="User Image" />
+                                <a href="{{ route('user-profile') }}"> <img src="{{ asset('')}}images/avt.jpg" class="img-circle elevation-2" alt="User Image" /></a>
                             </div>
                             <div class="info text-warning">
                                 {{ Auth::user()->name }}
