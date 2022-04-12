@@ -50,6 +50,9 @@ class CartController extends Controller
 
     public function updateCart(Request $request)
     {
+        $productList = $request->post('productList');
+        session(['cart' => json_decode($productList)]);
+        return session('cart');
     }
 
     public function checkout(Request $request)

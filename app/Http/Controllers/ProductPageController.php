@@ -9,7 +9,8 @@ class ProductPageController extends Controller
 {
     public function index()
     {
-        $productList = Product::all();
+        $productList = Product::join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->paginate(5);
+
         $data = ['productList' => $productList];
         return view('/client/products-list', $data);
     }
@@ -25,16 +26,18 @@ class ProductPageController extends Controller
             switch ($request->input('sort')) {
                 case 4:
                     $productList = Product::where('idCategory', '=', $idCate)->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->orderBy('price', 'asc')->paginate(5);
+                    $data = ['productList' => $productList,  'sort' => 4];
                     break;
                 case 5:
                     $productList = Product::where('idCategory', '=', $idCate)->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->orderBy('price', 'desc')->paginate(5);
+                    $data = ['productList' => $productList,  'sort' => 5];
                     break;
                 default:
                     break;
             }
-            $data = ['productList' => $productList];
+           
         } else {
-            $data = ['productList' => $this->getProductsByCategory($idCate)];
+            $data = ['productList' => $this->getProductsByCategory($idCate), 'sort'=> 0];
         }
         return view('/client/products-list', $data);
     }
