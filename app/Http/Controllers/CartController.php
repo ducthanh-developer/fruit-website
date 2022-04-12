@@ -27,14 +27,19 @@ class CartController extends Controller
         $product->nameProduct = $request->input('nameProduct');
         $product->imgUrl = $request->input('imgUrl');
         $product->price = $request->input('price');
-        $product->quantity = 1;
+        if ($request->has('quantity')) {
+            $product->quantity = $request->input('quantity');
+        } else {
+            $product->quantity = 1;
+        }
+
         if (!$request->session()->exists('cart')) {
             $request->session()->put('cart', []);
         }
         $cart = $request->session()->get('cart');
         for ($i = 0; $i < sizeof($cart); $i++) {
             if ($cart[$i]->idProduct == $request->input('idProduct')) {
-                $product->quantity = $cart[$i]->quantity++;
+                $product->quantity += $cart[$i]->quantity;
                 $request->session()->push('cart[' . $i . ']', $product);
                 return redirect()->back();
             }

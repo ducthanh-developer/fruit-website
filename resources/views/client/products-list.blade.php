@@ -130,7 +130,7 @@
                                 <li class="p-b-5">
                                     <a href="#" class="flex-sb-m flex-w txt-s-101 cl6 hov-cl10 trans-04 p-tb-3">
                                         <span class="m-r-10">
-                                            Fruit Juic
+                                            Fruit Juice
                                         </span>
 
                                         <span>

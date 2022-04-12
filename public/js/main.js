@@ -280,14 +280,6 @@
             });
         });
 
-        $('.js-addcart1').each(function(){
-            var nameProduct = $(this).parent().parent().find('.js-name1').html();
-            $(this).on('click', function(e){
-                e.preventDefault();
-                swal(nameProduct, "is added to cart !", "success");
-            });
-        });
-
 
     } catch(er) {console.log(er);}
     

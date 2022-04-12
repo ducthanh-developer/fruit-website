@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ProductPageController extends Controller
 {
+    public function index()
+    {
+        $productList = Product::all();
+        $data = ['productList' => $productList];
+        return view('/client/products-list', $data);
+    }
+
     public function getProductsByCategory($idCate)
     {
         return Product::where('idCategory', '=', $idCate)->join('productdetail', 'products.idProduct', '=', 'productdetail.idProduct')->paginate(5);
