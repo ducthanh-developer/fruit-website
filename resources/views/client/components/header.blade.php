@@ -18,12 +18,9 @@
                             <li>
                                 <a href="">Category</a>
                                 <ul class="sub-menu">
-                                    <li><a href="shop-sidebar-grid.html">Shop Sidebar Grid</a></li>
-                                    <li><a href="shop-sidebar-list.html">Shop Sidebar List</a></li>
-                                    <li><a href="shop-product-grid.html">Shop Product Grid</a></li>
-                                    <li><a href="shop-product-list.html">Shop Product List</a></li>
-                                    <li><a href="product-single.html">Product Single</a></li>
-                                    <li><a href="shop-cart.html">Shop Cart</a></li>
+                                    @foreach ($category as $item)
+                                        <li><a href="{{ route('product-list', ['idCate'=>$item->idCategory]) }}">{{$item->nameCategory}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
 
@@ -45,7 +42,7 @@
                 <div class="center-header">
                     <!-- Logo desktop -->
                     <div class="logo">
-                        <a href="index.html"><img src="{{ asset('') }}images/icons/logo-01.png" alt="IMG-LOGO"></a>
+                        <a href="/"><img src="{{ asset('images/icons/logo-01.png') }}" alt="IMG-LOGO"></a>
                     </div>
                 </div>
 
@@ -65,7 +62,6 @@
                                 <img src="{{ asset('images/icons/icon-search.png') }}" alt="SEARCH">
                             </div>
                         </div>
-
                         <div class="wrap-cart-header h-full flex-m m-l-10 menu-click">
                             <div class="icon-header-item flex-c-m trans-04 icon-header-noti" data-notify="0">
                                 <a href=" {{ route('shopping-cart') }}"><img
@@ -180,20 +176,20 @@
     <div class="wrap-header-mobile">
         <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="index.html"><img src="{{ asset('') }}images/icons/logo-01.png" alt="IMG-LOGO"></a>
+            <a href="index.html"><img src="{{ asset('images/icons/logo-01.png') }}" alt="IMG-LOGO"></a>
         </div>
 
         <!-- Icon header -->
         <div class="wrap-icon-header flex-w flex-r-m h-full wrap-menu-click m-r-15">
             <div class="h-full flex-m">
                 <div class="icon-header-item flex-c-m trans-04 js-show-modal-search">
-                    <img src="{{ asset('') }}images/icons/icon-search.png" alt="SEARCH">
+                    <img src="{{ asset('images/icons/icon-search.png') }}" alt="SEARCH">
                 </div>
             </div>
 
             <div class="wrap-cart-header h-full flex-m m-l-5 menu-click">
                 <div class="icon-header-item flex-c-m trans-04 icon-header-noti" data-notify="2">
-                    <img src="{{ asset('') }}images/icons/icon-cart-2.png" alt="CART">
+                    <img src="{{ asset('images/icons/icon-cart-2.png') }}" alt="CART">
                 </div>
 
                 <div class="cart-header menu-click-child trans-04">
@@ -203,7 +199,7 @@
                             <div class="size-w-15 flex-w flex-t">
                                 <a href="product-single.html"
                                     class="wrap-pic-w bo-all-1 bocl12 size-w-16 hov3 trans-04 m-r-14">
-                                    <img src="{{ asset('') }}images/item-cart-01.jpg" alt="PRODUCT">
+                                    <img src="{{ asset('images/item-cart-01.jpg') }}" alt="PRODUCT">
                                 </a>
 
                                 <div class="size-w-17 flex-col-l">
@@ -223,7 +219,7 @@
 
                             <div class="size-w-14 flex-b">
                                 <button class="lh-10">
-                                    <img src="{{ asset('') }}images/icons/icon-close.png" alt="CLOSE">
+                                    <img src="{{ asset('images/icons/icon-close.png') }}" alt="CLOSE">
                                 </button>
                             </div>
                         </div>
@@ -233,7 +229,7 @@
                             <div class="size-w-15 flex-w flex-t">
                                 <a href="product-single.html"
                                     class="wrap-pic-w bo-all-1 bocl12 size-w-16 hov3 trans-04 m-r-14">
-                                    <img src="{{ asset('') }}images/item-cart-02.jpg" alt="PRODUCT">
+                                    <img src="{{ asset('images/item-cart-02.jpg') }}" alt="PRODUCT">
                                 </a>
 
                                 <div class="size-w-17 flex-col-l">
@@ -253,7 +249,7 @@
 
                             <div class="size-w-14 flex-b">
                                 <button class="lh-10">
-                                    <img src="{{ asset('') }}images/icons/icon-close.png" alt="CLOSE">
+                                    <img src="{{ asset('images/icons/icon-close.png') }}" alt="CLOSE">
                                 </button>
                             </div>
                         </div>
@@ -396,8 +392,9 @@
         </button>
 
         <div class="container-search-header">
-            <form class="wrap-search-header flex-w">
-                <button class="flex-c-m trans-04">
+            <form class="wrap-search-header flex-w" method="get" action=" {{ route('product-search') }}">
+                @csrf
+                <button type="submit" class="flex-c-m trans-04">
                     <span class="lnr lnr-magnifier"></span>
                 </button>
                 <input class="plh1" type="text" name="search" placeholder="Search...">

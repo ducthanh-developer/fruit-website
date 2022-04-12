@@ -115,7 +115,7 @@ Route::get('/admin/comments', [CommentsController::class, 'index']);
 // Client Route
 
 Route::get('/product-list/{idCate}', [ProductPageController::class, 'productListView'])->name('product-list');
-Route::get('/product-search', [ProductPageController::class, 'productSearch']);
+Route::get('/product-search', [ProductPageController::class, 'productSearch'])->name('product-search');
 Route::get('/product-search-price/{low}/{high}', [ProductPageController::class, 'productSearchPrice']);
 // Trang chủ
 Route::get('/', [HomeController::class, 'index'])->name('home');
