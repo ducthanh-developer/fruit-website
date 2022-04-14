@@ -24,6 +24,13 @@ class AccountController extends Controller
         }
     }
     public function update(Request $request){
+        $request->validate([
+            'name'=>['required','min:3','max:20'],
+            'email'=>'email|ends_with:@gmail.com',
+            'dateOfBirth'=>'required','date',
+            'phoneNumber'=>'required|min:10|numeric',
+            'address'=>'required'
+        ]);
         $user = User::find(Auth::user()->id);
         if($user){
             $user->name = $request['name'];
@@ -35,9 +42,10 @@ class AccountController extends Controller
             $user->save();
         }
         return redirect()->back();
+
     }
     public function profile(){
-        $bill= DB::table('users')->where('id', '=', Auth::user()->id)
+        $bill= DB::table('users')
             ->join('bill', 'users.id', '=', 'bill.idUser')
             ->join('billdetail', 'bill.idBill', '=', 'billdetail.idBill')
             ->join('productdetail','billdetail.idProductDetail','=','productdetail.idProductDetail')

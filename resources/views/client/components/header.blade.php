@@ -49,6 +49,14 @@
                 <div class="right-header">
                     <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m h-full wrap-menu-click p-t-8">
+                        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                            <div class="image">
+                                <a href="{{ route('user-profile') }}"> <img src="{{ asset('')}}images/avt.jpg" class="img-circle elevation-2" alt="User Image" /></a>
+                            </div>
+                            <div class="info text-warning">
+                                {{ Auth::user()->name }}
+                            </div>
+                        </div>
                         <div class="h-full flex-m">
                             <div class="icon-header-item flex-c-m trans-04 js-show-modal-search">
                                 <img src="{{ asset('images/icons/icon-search.png') }}" alt="SEARCH">

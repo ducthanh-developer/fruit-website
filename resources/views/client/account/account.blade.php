@@ -159,7 +159,7 @@
 								</p>
 
 								<p>
-									From your account dashboard you can view your recent orders, manage your shipping and billing addresses and edit your password and account details.
+									From your account dashboard you can view your recent orders, manage your shipping and edit your password and account details.
 								</p>
 							</div>
 							<!-- - -->
@@ -205,8 +205,8 @@
 																			}
 																			@endif
 																		<td class="d-flex" class="project-actions text-center">
-																			<a class="btn btn-danger btn-sm" onclick="deleteAlert()">
-																				Cancelled
+																			<a href="/account/orders/delete/{{$bill->idBill}}" class="btn btn-danger btn-sm" onclick="deleteAlert()">
+																				Cancelled 
 																			</a>
 																		</td>
 																	</tr>
@@ -270,6 +270,15 @@ s									</div>
 							</div>
 
 							<!-- - -->
+							{{-- @if ($error ->any())
+							<div class="alert alert-danger">
+								<ul>
+									@foreach ($error -> all() as $error)
+										
+									@endforeach
+								</ul>
+							</div>															
+							@endif --}}
 							<div class="tab-pane fade" id="account-details" role="tabpanel">
 								<form>
 									<div class="row">
