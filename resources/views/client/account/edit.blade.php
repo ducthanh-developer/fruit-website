@@ -53,6 +53,15 @@
                 timer: 2500,
             });
         };
+		const errorAlert = () => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Chỉnh sửa lỗi!",
+                showConfirmButton: false,
+                timer: 2500,
+            });
+        };
 
         // data table
         $(function() {
@@ -156,6 +165,15 @@
 							</div>
 							<!-- - --> --}}
 							<div class="tab-pane ade show active" id="account-details" role="tabpanel">
+								@if ($errors->any())
+									<div class="alert alert-danger">
+										<ul>
+											@foreach ($errors->all() as $error)
+												<li>{{ $error }}</li>
+											@endforeach
+										</ul>
+									</div>
+								@endif
 								<form method="POST"  action="{{route('user-update')}}">
 									@csrf
 									<div class="row">

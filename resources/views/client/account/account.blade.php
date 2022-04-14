@@ -270,6 +270,15 @@ s									</div>
 							</div>
 
 							<!-- - -->
+							{{-- @if ($error ->any())
+							<div class="alert alert-danger">
+								<ul>
+									@foreach ($error -> all() as $error)
+										
+									@endforeach
+								</ul>
+							</div>															
+							@endif --}}
 							<div class="tab-pane fade" id="account-details" role="tabpanel">
 								<form>
 									<div class="row">
