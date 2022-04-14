@@ -1,3 +1,4 @@
+
 @extends('client.layouts.main-layout')
 @section('title')
     Home
@@ -24,7 +25,7 @@
                         </div>
 
                         <!--  -->
-                        <h2 class="tp-caption tp-resizeme layer2"
+                        <h2 class="tp-caption tp-resizeme layer2  text-success"
                             data-frames='[{"delay":500,"split":"chars","splitdelay":0.05,"speed":1300,"frame":"0","from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                             data-visibility="['on', 'on', 'on', 'on']" data-fontsize="['150', '120', '100', '80']"
                             data-lineheight="['165', '130', '110', '82']" data-color="['#fff']"
@@ -34,7 +35,7 @@
                             data-paddingtop="[0, 0, 0, 0]" data-paddingright="[15, 15, 15, 15]"
                             data-paddingbottom="[0, 0, 0, 0]" data-paddingleft="[15, 15, 15, 15]" data-basealign="slide"
                             data-responsive_offset="on">
-                            Farm Fresh
+                            Nông Trại Tươi Sạch
                         </h2>
 
                         <!--  -->
@@ -67,7 +68,7 @@
                         </div>
 
                         <!--  -->
-                        <h2 class="tp-caption tp-resizeme layer2"
+                        <h2 class="tp-caption tp-resizeme layer2  text-success"
                             data-frames='[{"delay":500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                             data-visibility="['on', 'on', 'on', 'on']" data-fontsize="['150', '120', '100', '80']"
                             data-lineheight="['165', '130', '110', '82']" data-color="['#fff']"
@@ -77,7 +78,7 @@
                             data-paddingtop="[0, 0, 0, 0]" data-paddingright="[15, 15, 15, 15]"
                             data-paddingbottom="[0, 0, 0, 0]" data-paddingleft="[15, 15, 15, 15]" data-basealign="slide"
                             data-responsive_offset="on">
-                            Farm Fresh
+                            Nông Trại Tươi Sạch
                         </h2>
 
                         <!--  -->
@@ -107,7 +108,7 @@
                 </div>
             </div>
 
-            <h3 class="txt-center txt-l-101 cl3 respon1">
+            <h3 class="txt-center txt-l-101 cl3 respon1" style="font-family:roboto">
                 SẢN PHẨM NỔI BẬT
             </h3>
         </div>
@@ -125,7 +126,7 @@
 
                                 <div class="block1-content flex-col-c-m p-b-46">
                                     <a href="/chi-tiet-san-pham/{{ $value->idProduct }}"
-                                        class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                                        class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1" style="font-family:roboto">
                                         {{ $value->nameProduct }}
                                     </a>
                                     <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
@@ -168,7 +169,7 @@
     </section>
 
     <!-- Why chose -->
-    <section class="sec-whychose bg12 p-t-120">
+    <!-- <section class="sec-whychose bg12 p-t-120">
         <div class="container">
             <div class="row">
                 <div class="col-md-7 order-md-2">
@@ -250,7 +251,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Product -->
     <div class="sec-product bg0 p-t-145 p-b-25">
@@ -264,7 +265,7 @@
                     </div>
                 </div>
 
-                <h3 class="txt-center txt-l-101 cl3 respon1">
+                <h3 class="txt-center txt-l-101 cl3 respon1" style="font-family:roboto">
                     SẢN PHẨM BÁN CHẠY
                 </h3>
             </div>
@@ -274,26 +275,26 @@
                     <!-- <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10 how-active1" data-filter=".all-product-fill">
                             Tất cả sản phẩm
                         </button> -->
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10 how-active1" data-filter="*">
+                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10 how-active1" data-filter="*" style="font-family:roboto">
                         Tất cả sản phẩm
                     </button>
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".fruit">
+                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".fruit" style="font-family:roboto">
                         Trái cây
                     </button>
 
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".vegetable">
+                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".vegetable" style="font-family:roboto">
                         Rau củ
                     </button>
 
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".meat">
+                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".meat" style="font-family:roboto">
                         Thịt, trứng và cá
                     </button>
 
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".rice">
+                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".rice" style="font-family:roboto">
                         Gạo - Thực phẩm khô
                     </button>
 
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".butter">
+                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".butter" style="font-family:roboto">
                         Bơ sữa
                     </button>
                 </div>
@@ -309,7 +310,7 @@
 
                                 <div class="block1-content flex-col-c-m p-b-46">
                                     <a href="/chi-tiet-san-pham/{{ $value->idProduct }}"
-                                        class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                                        class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1" style="font-family:roboto">
                                         {{ $value->nameProduct }}
                                     </a>
 
@@ -536,7 +537,7 @@
     </div>
 
     <!-- We Bring -->
-    <section class="sec-bring bg-img1 p-t-145 p-b-100" style="background-image: url(images/bg-02.jpg);">
+    <!-- <section class="sec-bring bg-img1 p-t-145 p-b-100" style="background-image: url(images/bg-02.jpg);">
         <div class="container">
             <div class="size-a-1 flex-col-c-m p-b-40">
                 <div class="txt-center txt-m-201 cl10 how-pos1-parent m-b-14">
@@ -554,15 +555,15 @@
 
             <div class="how-pos6-parent">
                 <!--  -->
-                <div class="flex-c-b how-pos6 dis-none-lg">
+                <!-- <div class="flex-c-b how-pos6 dis-none-lg">
                     <div class="size-w-28 wrap-pic-max-s w-full-sm">
                         <img src="images/other-07.png" alt="IMG">
                     </div>
-                </div>
+                </div> -->
 
 
                 <!--  -->
-                <div class="flex-w flex-sb m-rl--15 m-rl-0-lg respon20">
+                <!-- <div class="flex-w flex-sb m-rl--15 m-rl-0-lg respon20">
                     <div class="size-w-24 flex-col p-t-50 p-b-30 respon5">
                         <div class="flex-w flex-str size-w-27 al-self-e w-full-lg">
                             <div class="size-w-26 flex-r-m txt-right txt-m-109 cl3 respon6-01">
@@ -659,11 +660,11 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-            </div>
-        </div>
-    </section>
+            <!-- </div>
+        </div> -->
+    <!-- </section> --> 
 
     <!-- Product2 -->
     <section class="sec-product2 bg0 p-t-113 p-b-25">
@@ -675,7 +676,7 @@
                         <div class="wrap-slick6">
                             <div class="flex-col-l p-b-25 p-rl-15">
                                 <div class="txt-center txt-m-202 cl10 how-pos1-parent p-b-2">
-                                    New Form The Farm
+                                    Sản Phẩm Mới
 
                                     <div class="how-pos1 p-b-3">
                                         <img src="images/icons/symbol-02.2.png" alt="IMG">
@@ -684,12 +685,12 @@
 
                                 <div class="flex-w flex-t w-full p-t-5">
                                     <h4 class="size-w-5 m-r-20">
-                                        <span class="txt-l-109 cl6">
-                                            organic
+                                        <span class="txt-l-109 cl6" style="font-family:roboto">
+                                            hữu cơ
                                         </span>
 
-                                        <span class="txt-l-108 cl3">
-                                            special
+                                        <span class="txt-l-108 cl3" style="font-family:roboto">
+                                            đặc biệt
                                         </span>
                                     </h4>
 
@@ -714,7 +715,7 @@
 
                                                 <div class="block1-content flex-col-c-m p-b-36">
                                                     <a href="/chi-tiet-san-pham/{{ $value->idProduct }}"
-                                                        class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                                                        class="txt-m-113 cl3 txt-center hov-cl10 trans-04 js-name-b1" style="font-family:roboto">
                                                         {{ $value->nameProduct }}
                                                     </a>
 
@@ -767,7 +768,7 @@
                         <div class="wrap-slick6">
                             <div class="flex-col-l p-b-25 p-rl-15">
                                 <div class="txt-center txt-m-202 cl10 how-pos1-parent p-b-2">
-                                    Costumer Needs
+                                    Sản Phẩm Gợi Ý
 
                                     <div class="how-pos1 p-b-3">
                                         <img src="images/icons/symbol-02.2.png" alt="IMG">
@@ -776,13 +777,13 @@
 
                                 <div class="flex-w flex-t w-full p-t-5">
                                     <h4 class="size-w-5 m-r-20">
-                                        <span class="txt-l-109 cl6">
-                                            organic
+                                        <span class="txt-l-109 cl6" style="font-family:roboto">
+                                            hữu cơ
                                         </span>
 
 
-                                        <span class="txt-l-108 cl3">
-                                            random
+                                        <span class="txt-l-108 cl3" style="font-family:roboto">
+                                            ngẫu nhiên
                                         </span>
                                     </h4>
 
@@ -858,7 +859,7 @@
     </section>
 
     <!-- Our farmers -->
-    <section class="sec-farmer bg12 p-t-145 p-b-70">
+    <!-- <section class="sec-farmer bg12 p-t-145 p-b-70">
         <div class="container">
             <div class="size-a-1 flex-col-c-m p-b-70">
                 <div class="txt-center txt-m-201 cl10 how-pos1-parent m-b-14">
@@ -1015,10 +1016,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Blog -->
-    <section class="sec-blog bg0 p-t-145 p-b-70">
+    <!-- <section class="sec-blog bg0 p-t-145 p-b-70">
         <div class="container">
             <div class="size-a-1 flex-col-c-m p-b-70">
                 <div class="txt-center txt-m-201 cl10 how-pos1-parent m-b-14">
@@ -1101,10 +1102,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Subscribe -->
-    <section class="sec-subscribe parallax100 how-overlay1 p-tb-65" style="background-image: url(images/bg-03.jpg);">
+    <!-- <section class="sec-subscribe parallax100 how-overlay1 p-tb-65" style="background-image: url(images/bg-03.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 p-tb-15">
@@ -1130,5 +1131,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 @endsection
