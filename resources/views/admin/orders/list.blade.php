@@ -130,11 +130,11 @@
                                             {{$bill->address}}   
                                         </td>
                                         <td class="project-actions text-center">
-                                            <a href="/orders/delete/{{$bill->idBill}}" class="btn btn-danger btn-sm" onclick="deleteAlert()">
+                                            <a href="/admin/orders/delete/{{$bill->idBill}}" class="btn btn-danger btn-sm" onclick="deleteAlert()">
                                                 <i class="fas fa-trash"> </i>
                                                 Delete 
                                             </a>                                          
-                                            <a href="/orders/edit" class="btn btn-success btn-sm">
+                                            <a href="/admin/orders/edit/{{$bill->idBill}}" class="btn btn-success btn-sm">
                                                 <i class="fa-solid fa-book-arrow-right">Edit</i>
                                             </a>
                                         </td>

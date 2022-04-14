@@ -105,6 +105,32 @@
                                 </div>
 
 
+					},
+					success: function(result) {
+						alert("Bình luận thành công");
+						window.location.reload(true);
+					},
+					error: function() {
+						alert("Đã có lỗi xảy ra, vui lòng thử lại sau");
+					}
+				});
+			}
+			$btn_cmt.click(function() {
+				alert(1);
+				self.addCmt();
+			});
+		}
+		$(window).ready(function() {
+			new cmt();
+		});
+	})($);
+</script>
+<section class="how-overlay2 bg-img1" style="background-image: url(images/bg-07.jpg);">
+	<div class="container">
+		<div class="txt-center p-t-160 p-b-165">
+			<h2 class="txt-l-101 cl0 txt-center p-b-14 respon1">
+				shop
+			</h2>
                             </div>
                         </div>
                     </div>

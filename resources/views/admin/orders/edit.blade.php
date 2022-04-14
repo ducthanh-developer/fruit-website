@@ -126,17 +126,18 @@ Edit orders
             </button>
         </div>
     </div>
+    @foreach($bill as bill)
     <div class="card-body">
-        <form action="{{route('order-update')}}" enctype="multipart/form-data" method="post">
-            @method('PUT')
+        <form action="admin/orders/update/{{$bill->idBill}}" enctype="multipart/form-data" method="POST">
+            @csrf
             <div class="row">
                 <div class="form-group col-6">
                     <label for="category">Edit status</label>
                     <select id="category" class="form-control custom-select" name="category">
                         <option disabled="">status</option>
-                        <option value="">Chờ xác nhận</option>
-                        <option value="">Đang chuẩn bị</option>
-                        <option value="">Đang vận chuyển</option>
+                        <option value="1">Chờ xác nhận</option>
+                        <option value="2">Đang chuẩn bị</option>
+                        <option value="3">Đang vận chuyển</option>
                     </select>
                 </div>
             </div>
@@ -148,5 +149,6 @@ Edit orders
             </div>
         </form>
     </div>
+    @endforeach
 </div>
 @endsection
