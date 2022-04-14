@@ -13,7 +13,7 @@
     <script src="{{ asset('vendor/noui/nouislider.min.js') }}"></script>
     <script>
         let sort = document.getElementById('sortby');
-        sort.onchange = function() {
+        sort.onchange = function(e) {
             document.getElementById('form-sort').submit();
         }
     </script>
@@ -282,11 +282,12 @@
                                     <form action="" method="get" id="form-sort">
                                         @csrf
                                         <select class="js-select2" id="sortby" name="sort">
-                                            <option value="1">Sort by popularity</option>
-                                            <option value="2">Sort by best sell</option>
-                                            <option value="3">Sort by special</option>
-                                            <option value="4">Sort prices from low to high</option>
-                                            <option value="5">Sort prices from high to low</option>
+                                            <option value="0">Default</option>
+                                            <option value="4" {{ isset($sort) ? ($sort == 4 ? 'selected' : '') : '' }}>Sort
+                                                prices
+                                                from low to high</option>
+                                            <option value="5" {{ isset($sort) ? ($sort == 5 ? 'selected' : '') : '' }}>Sort prices
+                                                from high to low</option>
                                         </select>
                                         <div class="dropDownSelect2"></div>
                                     </form>
@@ -326,7 +327,7 @@
                                                 <img src="{{ asset('images/' . $product->imgUrl) }}" alt="IMG">
 
                                                 <div class="block1-content flex-col-c-m p-b-46">
-                                                    <a href="/chi-tiet-san-pham/{{$product->idProduct}}"
+                                                    <a href="/chi-tiet-san-pham/{{ $product->idProduct }}"
                                                         class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
                                                         {{ $product->nameProduct }}
                                                     </a>
@@ -336,17 +337,22 @@
                                                     </span>
 
                                                     <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                                        <a href="/chi-tiet-san-pham/{{$product->idProduct}}"
+                                                        <a href="/chi-tiet-san-pham/{{ $product->idProduct }}"
                                                             class="block1-icon flex-c-m wrap-pic-max-w">
                                                             <img src="{{ asset('images/icons/icon-view.png') }}"
                                                                 alt="ICON">
                                                         </a>
-                                                        <form action="{{ route('add-cart') }}" method="post" id="form-add">
+                                                        <form action="{{ route('add-cart') }}" method="post"
+                                                            id="form-add">
                                                             @csrf
-                                                            <input type="hidden" name="idProduct" value="{{ $product->idProductDetail }}">
-                                                            <input type="hidden" name="nameProduct" value="{{ $product->nameProduct }}">
-                                                            <input type="hidden" name="imgUrl" value="{{ $product->imgUrl }}">
-                                                            <input type="hidden" name="price" value="{{ $product->price }}">
+                                                            <input type="hidden" name="idProduct"
+                                                                value="{{ $product->idProductDetail }}">
+                                                            <input type="hidden" name="nameProduct"
+                                                                value="{{ $product->nameProduct }}">
+                                                            <input type="hidden" name="imgUrl"
+                                                                value="{{ $product->imgUrl }}">
+                                                            <input type="hidden" name="price"
+                                                                value="{{ $product->price }}">
                                                             <button type="submit"
                                                                 class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
                                                                 <img src="{{ asset('images/icons/icon-cart.png') }}"

@@ -16,7 +16,7 @@
                             </li>
 
                             <li>
-                                <a href="">Category</a>
+                                <a href="{{route('products')}}">Category</a>
                                 <ul class="sub-menu">
                                     @foreach ($category as $item)
                                         <li><a href="{{ route('product-list', ['idCate'=>$item->idCategory]) }}">{{$item->nameCategory}}</a></li>
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="wrap-cart-header h-full flex-m m-l-10 menu-click">
-                            <div class="icon-header-item flex-c-m trans-04 icon-header-noti" data-notify="0">
+                            <div class="icon-header-item flex-c-m trans-04 icon-header-noti" data-notify="{{Session::has('cart') ? sizeof(Session::get('cart')) : 0}}">
                                 <a href=" {{ route('shopping-cart') }}"><img
                                         src="{{ asset('images/icons/icon-cart-2.png') }}" alt="CART"></a>
                             </div>
